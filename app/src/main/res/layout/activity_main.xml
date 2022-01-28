@@ -12,8 +12,8 @@
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Введите второе число"
+        android:inputType="textPersonName"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/et1"
         tools:layout_editor_absoluteX="0dp" />
@@ -34,10 +34,11 @@
         android:id="@+id/btn"
         android:layout_width="178dp"
         android:layout_height="48dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:text="Сложить"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et2" />
 
@@ -54,10 +55,22 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="236dp"
-        android:layout_height="322dp"
-        app:srcCompat="@drawable/_96574"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="324dp" />
+        android:layout_width="203dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view"
+        app:srcCompat="@drawable/__96574" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="376dp"
+        android:layout_height="266dp"
+        android:layout_marginTop="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,6 +28,9 @@ android {
 
         python{
             buildPython "C:/Users/alexs/AppData/Local/Programs/Python/Python38-32/python.exe"
+            pip {
+                install "matplotlib"
+            }
         }
     }
 
