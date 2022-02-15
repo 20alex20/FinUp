@@ -4,4 +4,10 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="Oper">Операции</string>
+    <string name="bills">Счета</string>
+    <string name="analisis">Аналитика</string>
+    <string name="more">Еще</string>
+    <string name="balance">Общий баланс</string>
+    <string name="itogi">Итоги за месяц</string>
 </resources>
