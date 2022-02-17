@@ -20,9 +20,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="100dp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/balance"
+                android:textColor="#6E6E6E"
                 android:textSize="27sp" />
 
             <TextView
@@ -84,6 +85,34 @@
                         android:layout_marginEnd="5dp"
                         android:background="@drawable/rectangle_42" />
 
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="28dp"
+                        app:srcCompat="@drawable/ellipse_5" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="34dp"
+                        android:layout_marginTop="22dp"
+                        android:text="Доходы"
+                        android:textColor="#6E6E6E"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="45dp"
+                        android:text="0₽"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
                 </FrameLayout>
 
                 <FrameLayout
@@ -100,6 +129,34 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:background="@drawable/rectangle_42" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="28dp"
+                        app:srcCompat="@drawable/ellipse_6" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="34dp"
+                        android:layout_marginTop="22dp"
+                        android:text="Расходы"
+                        android:textColor="#6E6E6E"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="45dp"
+                        android:text="0₽"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                 </FrameLayout>
             </LinearLayout>
@@ -131,6 +188,44 @@
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/rectangle_39" />
 
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginTop="20dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginTop="44dp"
+                    android:text="TextView"
+                    android:textColor="#6E6E6E"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginTop="38dp"
+                    app:srcCompat="@drawable/icons8__2_64_2" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="300dp"
+                    android:layout_marginTop="20dp"
+                    android:text="0₽"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
             </FrameLayout>
 
             <FrameLayout
@@ -159,6 +254,19 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.84000003"
+        app:srcCompat="@drawable/icons8__80"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
