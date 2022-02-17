@@ -6,50 +6,94 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/et2"
+    <ImageView
+        android:id="@+id/imageView5"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Введите второе число"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/et1"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <EditText
-        android:id="@+id/et1"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Введите первое число"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="178dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:text="Сложить"
-        android:textSize="20sp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/unknown" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="220dp"
+        android:layout_height="165dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/text_view"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Сумма"
-        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="22dp"
+        android:text="@string/login"
+        android:textSize="27sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/logintable"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/logintable"
+        android:layout_width="322dp"
+        android:layout_height="128dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587"
+        app:srcCompat="@drawable/rectangle_23__1_" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.612" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/white"
+        android:onClick="btnRegister"
+        android:text="@string/register"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logintable" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
