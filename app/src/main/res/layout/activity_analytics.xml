@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Analytics">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -15,43 +15,65 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/unknown" />
 
-    <TextView
-        android:id="@+id/textView17"
+    <ImageView
+        android:id="@+id/imageView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="40dp"
-        android:text="0₽"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icons8___90_1" />
 
-    <TextView
-        android:id="@+id/textView18"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="70dp"
-        android:text="Баланс"
-        android:textColor="#6E6E6E"
-        android:textSize="20sp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"  />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="140dp"
-        android:text="Карты и счета"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/group_53__1_" />
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="375dp"
+            android:layout_height="63dp"
+            android:background="#578C8C8C"
+            app:srcCompat="@drawable/empty" />
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="375dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="63dp"
+            android:background="#578C8C8C"
+            app:srcCompat="@drawable/empty" />
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="375dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="203dp"
+            android:background="#578C8C8C"
+            app:srcCompat="@drawable/empty" />
+
+        <ImageButton
+            android:id="@+id/imageButton8"
+            android:layout_width="375dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="129dp"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/empty"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -76,6 +98,7 @@
                     android:layout_marginStart="17dp"
                     android:layout_marginEnd="35dp"
                     android:background="#00FFFFFF"
+                    android:onClick="Operations"
                     app:srcCompat="@drawable/icons8___100_1__1_"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -86,7 +109,8 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="25dp"
                     android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/icons8____100_1"
+                    android:onClick="Scores"
+                    app:srcCompat="@drawable/icons8____100_1123"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
@@ -97,7 +121,7 @@
                     android:layout_marginEnd="25dp"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/icons8____64_1"
+                    app:srcCompat="@drawable/icons8____64_11"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
@@ -108,7 +132,7 @@
                     android:layout_marginEnd="15dp"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/icons8___100_2"
+                    app:srcCompat="@drawable/icons8___102"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
@@ -158,6 +182,5 @@
         </LinearLayout>
 
     </FrameLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

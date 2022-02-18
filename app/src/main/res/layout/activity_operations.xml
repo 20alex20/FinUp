@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".OperationsActivity">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/unknown" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -120,7 +120,8 @@
                         android:layout_marginStart="108dp"
                         android:layout_marginTop="18dp"
                         android:background="#00FFFFFF"
-                        app:srcCompat="@drawable/icons8__80" />
+                        app:srcCompat="@drawable/icons8__80"
+                        tools:ignore="SpeakableTextPresentCheck" />
 
                 </FrameLayout>
 
@@ -174,7 +175,9 @@
                         android:layout_marginStart="108dp"
                         android:layout_marginTop="18dp"
                         android:background="#00FFFFFF"
-                        app:srcCompat="@drawable/icons8__80" />
+                        android:onClick="AddExpense"
+                        app:srcCompat="@drawable/icons8__80"
+                        tools:ignore="SpeakableTextPresentCheck" />
 
                 </FrameLayout>
             </LinearLayout>
@@ -211,7 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="95dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="28dp"
                     android:text="TextView"
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -221,8 +224,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="95dp"
-                    android:layout_marginTop="44dp"
-                    android:text="TextView"
+                    android:layout_marginTop="50dp"
+                    android:text="Category"
                     android:textColor="#6E6E6E"
                     android:textSize="14sp" />
 
@@ -231,7 +234,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="58dp"
-                    android:layout_marginTop="38dp"
+                    android:layout_marginTop="40dp"
                     app:srcCompat="@drawable/icons8__2_64_2" />
 
                 <TextView
@@ -239,10 +242,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="300dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:text="0₽"
                     android:textColor="#000000"
                     android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginTop="82dp"
+                    android:inputType="time"
+                    android:text="18:30"
+                    android:textColor="#6E6E6E"
+                    android:textSize="14sp"  />
 
             </FrameLayout>
 
@@ -272,6 +286,25 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/rectangle_39" />
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -306,6 +339,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="25dp"
                     android:background="#00FFFFFF"
+                    android:onClick="Scores"
                     app:srcCompat="@drawable/icons8____100_1123"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -317,6 +351,7 @@
                     android:layout_marginEnd="25dp"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
+                    android:onClick="Analitics"
                     app:srcCompat="@drawable/icons8____64_1"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -328,7 +363,7 @@
                     android:layout_marginEnd="15dp"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/icons8___100_2"
+                    app:srcCompat="@drawable/icons8___102"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>

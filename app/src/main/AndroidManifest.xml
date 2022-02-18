@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application">
         <activity
+            android:name=".Graphics"
+            android:exported="false" />
+        <activity
+            android:name=".Analytics"
+            android:exported="false" />
+        <activity
+            android:name=".Scores"
+            android:exported="false" />
+        <activity
+            android:name=".AddExpenses"
+            android:exported="false" />
+        <activity
+            android:name=".OperationsActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity

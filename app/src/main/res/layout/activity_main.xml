@@ -84,6 +84,19 @@
         app:layout_constraintVertical_bias="0.612" />
 
     <Button
+        android:id="@+id/button"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="#00FFFFFF"
+        android:onClick="btnMain"
+        android:textColor="#00FFFFFF"
+        app:iconTint="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/logintable"
+        app:layout_constraintTop_toTopOf="@+id/logintable"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"

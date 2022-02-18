@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/unknown" />
@@ -58,7 +57,7 @@
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/username"
+        android:hint="Email"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
@@ -66,20 +65,20 @@
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.532" />
+        app:layout_constraintVertical_bias="0.51" />
 
     <EditText
         android:id="@+id/editTextTextName"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
-        android:hint="@string/password"
-        android:inputType="textPassword"
         android:layout_marginTop="2dp"
+        android:hint="@string/username"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextmail"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTextmail" />
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="198dp"
@@ -104,5 +103,18 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logintable" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:background="#00FFFFFF"
+        android:onClick="btnLogin"
+        android:textColor="#00FFFFFF"
+        app:iconTint="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/logintable"
+        app:layout_constraintTop_toTopOf="@+id/logintable"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

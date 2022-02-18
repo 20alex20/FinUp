@@ -28,4 +28,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
+    public void btnMain(View view) {
+        Intent intent = new Intent(this, OperationsActivity.class);
+        startActivity(intent);
+    }
 }
