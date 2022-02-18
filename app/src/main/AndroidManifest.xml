@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application">
         <activity
+            android:name=".Graphics"
+            android:exported="false" />
+        <activity
+            android:name=".Analytics"
+            android:exported="false" />
+        <activity
+            android:name=".Scores"
+            android:exported="false" />
+        <activity
+            android:name=".AddExpenses"
+            android:exported="false" />
+        <activity
+            android:name=".OperationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -18,6 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
