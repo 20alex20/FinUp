@@ -27,7 +27,7 @@ android {
         }
 
         python{
-            buildPython "C:/Users/alexs/AppData/Local/Programs/Python/Python38-32/python.exe"
+            buildPython "C:/Users/1/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.8/python.exe"
             pip {
                 install "matplotlib"
             }
