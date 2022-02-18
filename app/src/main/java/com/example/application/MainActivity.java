@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Et1 = (EditText)findViewById(R.id.et1);
+        /*Et1 = (EditText)findViewById(R.id.et1);
         Et2 = (EditText)findViewById(R.id.et2);
         Btn = (Button)findViewById(R.id.btn);
         tv = (TextView)findViewById(R.id.text_view);
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 iv.setImageBitmap(BitmapFactory.decodeByteArray(ba,0, ba.length));
                 // tv.setText(obj.toString());
             }
-        });
+        });*/
     }
     public void btnRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
@@ -61,5 +63,9 @@ public class MainActivity extends AppCompatActivity {
     public void btnMain(View view) {
         Intent intent = new Intent(this, OperationsActivity.class);
         startActivity(intent);
+    }
+    public  void onClick(View view){
+        Toast toast = Toast.makeText(this, "Hello Android!",Toast.LENGTH_LONG);
+        toast.show();
     }
 }
