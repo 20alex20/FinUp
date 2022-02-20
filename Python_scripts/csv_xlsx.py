@@ -20,5 +20,6 @@ def export_xlsx(directory: str, headers: list, cur_list: list):  # directory - E
     workbook.close()
 
 
-export_csv(".", ["gvghvgh", "kjhuijh", "bhjbgkjui"], [[1, 2, 3], [1, 2, 4], [1, 2, 5]])
-export_xlsx(".", ["gvghvgh", "kjhuijh", "bhjbgkjui"], [[1, 2, 3], [1, 2, 4], [1, 2, 5]])
+if __name__ == '__main__':
+    export_csv(".", ["gvghvgh", "kjhuijh", "bhjbgkjui"], [[1, 2, 3], [1, 2, 4], [1, 2, 5]])
+    export_xlsx(".", ["gvghvgh", "kjhuijh", "bhjbgkjui"], [[1, 2, 3], [1, 2, 4], [1, 2, 5]])

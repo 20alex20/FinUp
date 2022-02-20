@@ -108,4 +108,5 @@ def graph(type: bool, mode: str, time_mode: int, *args):  # year_start, month_st
     return
 
 
-graph(True, "bar2", 2, 2020, 4, 2020, 6)
+if __name__ == '__main__':
+    graph(True, "bar2", 2, 2020, 4, 2020, 6)
