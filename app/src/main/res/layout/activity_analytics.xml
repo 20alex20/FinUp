@@ -79,7 +79,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="18dp">
 
         <LinearLayout
