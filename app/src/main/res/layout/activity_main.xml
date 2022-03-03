@@ -7,26 +7,27 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView20"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/unknown" />
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/_66_1"
+        tools:ignore="ImageContrastCheck"
+        tools:layout_editor_absoluteX="-46dp"
+        tools:layout_editor_absoluteY="-16dp"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="220dp"
         android:layout_height="165dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.25"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView"
@@ -45,13 +46,15 @@
         android:id="@+id/logintable"
         android:layout_width="322dp"
         android:layout_height="128dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.587"
-        app:srcCompat="@drawable/rectangle_23__1_" />
+        app:srcCompat="@drawable/rectangle_23__1_"
+        tools:ignore="ImageContrastCheck" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -61,12 +64,14 @@
         android:hint="@string/username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.532" />
+        app:layout_constraintVertical_bias="0.532"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
@@ -76,12 +81,14 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.612" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.612"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/button"
@@ -96,17 +103,19 @@
         app:layout_constraintTop_toTopOf="@+id/logintable"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/imageButton15"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
         android:layout_marginTop="70dp"
-        android:backgroundTint="@color/white"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/register"
         android:onClick="btnRegister"
-        android:text="@string/register"
-        android:textColor="@color/orange"
-        android:textSize="16sp"
+        android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logintable" />
+        app:layout_constraintTop_toBottomOf="@+id/logintable"
+        app:srcCompat="@drawable/rectangle_24"
+        tools:ignore="ImageContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

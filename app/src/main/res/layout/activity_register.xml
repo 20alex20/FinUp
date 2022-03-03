@@ -10,11 +10,16 @@
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/unknown" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/_66_1"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -25,7 +30,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.25"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView"
@@ -50,63 +56,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.637"
-        app:srcCompat="@drawable/rectangle_26" />
+        app:srcCompat="@drawable/rectangle_26"
+        android:contentDescription="@string/todo" />
 
     <EditText
         android:id="@+id/editTextmail"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextName"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/username"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextmail" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextmail"
+        android:autofillHints="" />
+
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:layout_marginTop="2dp"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextName"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:backgroundTint="@color/white"
-        android:onClick="btnLogin"
-        android:text="@string/login"
-        android:textColor="@color/orange"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logintable" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextName"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="45dp"
+        android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="62dp"
         android:background="#00FFFFFF"
@@ -115,6 +117,19 @@
         app:iconTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/logintable"
         app:layout_constraintTop_toTopOf="@+id/logintable"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton16"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="70dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/todo"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logintable"
+        app:srcCompat="@drawable/rectangle_25"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

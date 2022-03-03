@@ -10,4 +10,6 @@
     <string name="more">Еще</string>
     <string name="balance">Общий баланс</string>
     <string name="itogi">Итоги за месяц</string>
+    <string name="todo">TODO</string>
+    <string name="email">Email</string>
 </resources>
