@@ -20,18 +20,19 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="5dp"
+        android:id="@+id/imageButton18"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:background="#00FFFFFF"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:onClick="goBack"
+        android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icons8__50__1__4"
+        app:srcCompat="@drawable/icons8__50__1__1"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
