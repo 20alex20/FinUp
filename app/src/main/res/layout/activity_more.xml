@@ -15,8 +15,8 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/_66_1"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="24dp" />
 
     <TextView
         android:id="@+id/textView31"
@@ -44,16 +44,17 @@
 
     <ImageButton
         android:id="@+id/imageButton9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="104dp"
         android:backgroundTint="#00FFFFFF"
         android:minWidth="48dp"
         android:minHeight="48dp"
+        android:scaleType="centerInside"
         app:layout_constraintStart_toEndOf="@+id/textView32"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icons8__150_2"
+        app:srcCompat="@drawable/icons8__150_1"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
