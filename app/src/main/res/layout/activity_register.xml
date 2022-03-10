@@ -60,7 +60,7 @@
         android:contentDescription="@string/todo" />
 
     <EditText
-        android:id="@+id/editTextmail"
+        android:id="@+id/email_reg"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -77,7 +77,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextName"
+        android:id="@+id/username"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -88,11 +88,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextmail"
+        app:layout_constraintTop_toBottomOf="@+id/email_reg"
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/PASSword"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -103,16 +103,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextName"
+        app:layout_constraintTop_toBottomOf="@+id/username"
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_toop"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="62dp"
         android:background="#00FFFFFF"
-        android:onClick="btnLogin"
+        android:onClick="btnOperations"
         android:textColor="#00FFFFFF"
         app:iconTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/logintable"

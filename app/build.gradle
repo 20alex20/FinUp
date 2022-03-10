@@ -30,6 +30,8 @@ android {
             buildPython "C:\\Users\\1\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
             pip {
                 install "matplotlib"
+                install "pysqlite3"
+                install "werkzeug"
             }
         }
     }
