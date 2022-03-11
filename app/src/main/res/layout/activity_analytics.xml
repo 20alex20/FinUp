@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,47 +34,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="150dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/group_53__1_" />
-
-        <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="375dp"
-            android:layout_height="63dp"
-            android:background="#578C8C8C"
-            app:srcCompat="@drawable/empty" />
-
-        <ImageView
-            android:id="@+id/imageView17"
-            android:layout_width="375dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="63dp"
-            android:background="#578C8C8C"
-            app:srcCompat="@drawable/empty" />
-
-        <ImageView
-            android:id="@+id/imageView19"
-            android:layout_width="375dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="203dp"
-            android:background="#578C8C8C"
-            app:srcCompat="@drawable/empty" />
-
-        <ImageButton
-            android:id="@+id/imageButton8"
-            android:layout_width="375dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="129dp"
-            android:background="#00FFFFFF"
-            app:srcCompat="@drawable/empty"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    </FrameLayout>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -188,5 +148,17 @@
         </LinearLayout>
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_marginTop="200dp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_60" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

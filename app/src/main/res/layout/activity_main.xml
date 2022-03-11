@@ -74,7 +74,7 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/PASSword"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -91,7 +91,7 @@
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_toop"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
