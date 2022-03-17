@@ -56,8 +56,8 @@
         android:id="@+id/imageView"
         android:layout_width="236dp"
         android:layout_height="322dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/_96574"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="324dp" />
+        tools:layout_editor_absoluteX="96dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
