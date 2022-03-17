@@ -133,11 +133,14 @@ def do_query(query):  # для добавления/изменения данн�
 
 
 def register(username_email, password, full_name):
-    ans = get_data(format(is_there_username_email, username_email))
-    if ans:
-        return "Аккаунт на эту почту уже зарегистрирован"
-    do_query(format(register_query, username_email, generate_password_hash(password), full_name))
-    return login(username_email, password)
+    with open("D:/hh.txt", 'w+') as f:
+        f.write(username_email + ' ' + password + ' ' + full_name)
+    return  'k'
+    # ans = get_data(format(is_there_username_email, username_email))
+    # if ans:
+    #     return "Аккаунт на эту почту уже зарегистрирован"
+    # do_query(format(register_query, username_email, generate_password_hash(password), full_name))
+    # return login(username_email, password)
 
 def login(username_email, password):
     ans = get_data(format(login_query, username_email))

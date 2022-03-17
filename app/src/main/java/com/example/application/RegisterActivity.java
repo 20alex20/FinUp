@@ -40,9 +40,9 @@ public class RegisterActivity extends AppCompatActivity {
                 PyObject obj = pyobj.callAttr("register", Et1.getText().toString(), Et3.getText().toString(), Et2.getText().toString());
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
-                if (s.equals("Вход разрешен")) {
-                    btnOperations(view);
-                }
+                //if (s.equals("Вход разрешен")) {
+                //    btnOperations(view);
+                //}
                 // tv.setText(obj.toString());
             }
         });
