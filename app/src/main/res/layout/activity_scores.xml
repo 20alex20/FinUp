@@ -10,12 +10,13 @@
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/unknown" />
+        app:srcCompat="@drawable/_66_1" />
 
     <TextView
         android:id="@+id/textView17"
@@ -67,11 +68,12 @@
 
     <ImageButton
         android:id="@+id/imageButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="180dp"
+        android:layout_width="188dp"
+        android:layout_height="224dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="184dp"
         android:background="#00FFFFFF"
+        android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rectangle_61"
@@ -126,6 +128,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="30dp"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/icons8___100_2" />
 
         <TextView
@@ -161,14 +164,15 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="#00FFFFFF"
-            app:srcCompat="@drawable/empty" />
+            app:srcCompat="@drawable/empty"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageView
             android:id="@+id/imageView13"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="30dp"
-            app:srcCompat="@drawable/icons8__2_100_5" />
+            app:srcCompat="@drawable/icons8__2_100_3" />
 
         <TextView
             android:id="@+id/textView27"
@@ -200,46 +204,51 @@
 
                 <ImageButton
                     android:id="@+id/popolnenie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp"
-                    android:layout_marginStart="17dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="35dp"
                     android:background="#00FFFFFF"
                     android:onClick="Operations"
-                    app:srcCompat="@drawable/icons8___100_1__1_"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/icons8___100_1"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginEnd="25dp"
                     android:background="#00FFFFFF"
+                    android:scaleType="centerInside"
                     app:srcCompat="@drawable/icons8____100_1"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton3"
                     android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="7dp"
                     android:layout_marginEnd="25dp"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
                     android:onClick="Analitics"
+                    android:scaleType="centerInside"
                     app:srcCompat="@drawable/icons8____64_1"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/imageButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="12dp"
                     android:layout_marginEnd="15dp"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/icons8___102"
+                    android:onClick="More"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/more"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>

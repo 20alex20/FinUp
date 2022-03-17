@@ -11,7 +11,12 @@ public class Analytics extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_analytics);
+        setContentView(R.layout.activity_more);
+    }
+
+    public void AddExpense(View view) {
+        Intent intent = new Intent(this, AddExpenses.class);
+        startActivity(intent);
     }
 
     public void Scores(View view) {
@@ -19,12 +24,17 @@ public class Analytics extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Operations(View view) {
-        Intent intent = new Intent(this, OperationsActivity.class);
+    public void Analitics(View view) {
+        Intent intent = new Intent(this, Analytics.class);
         startActivity(intent);
     }
 
-    public void Graph(View view) {
+    public void More(View view) {
+        Intent intent = new Intent(this, More.class);
+        startActivity(intent);
+    }
+
+    public void Operations(View view) {
         Intent intent = new Intent(this, OperationsActivity.class);
         startActivity(intent);
     }

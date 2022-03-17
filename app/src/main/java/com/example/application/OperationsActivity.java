@@ -11,7 +11,7 @@ public class OperationsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_operations);
+        setContentView(R.layout.activity_more);
     }
 
     public void AddExpense(View view) {
@@ -26,6 +26,11 @@ public class OperationsActivity extends AppCompatActivity {
 
     public void Analitics(View view) {
         Intent intent = new Intent(this, Analytics.class);
+        startActivity(intent);
+    }
+
+    public void More(View view) {
+        Intent intent = new Intent(this, More.class);
         startActivity(intent);
     }
 }
