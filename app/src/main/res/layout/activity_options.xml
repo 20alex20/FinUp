@@ -177,8 +177,8 @@
                     android:id="@+id/switch1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="340dp"
                     android:minWidth="48dp"
                     android:minHeight="48dp" />
             </FrameLayout>
@@ -205,8 +205,8 @@
                     android:id="@+id/switch2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="340dp"
                     android:minWidth="48dp"
                     android:minHeight="48dp" />
             </FrameLayout>
@@ -233,8 +233,8 @@
                     android:id="@+id/switch3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="340dp"
                     android:minWidth="48dp"
                     android:minHeight="48dp" />
             </FrameLayout>
@@ -261,8 +261,8 @@
                     android:id="@+id/imageButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginStart="176dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="340dp"
                     android:backgroundTint="#00FFFFFF"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
