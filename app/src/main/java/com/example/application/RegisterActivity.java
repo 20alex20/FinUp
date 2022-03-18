@@ -37,12 +37,12 @@ public class RegisterActivity extends AppCompatActivity {
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //PyObject obj = pyobj.callAttr("register", Et1.getText().toString(), Et3.getText().toString(), Et2.getText().toString());
-                //String s = obj.toString();
-                //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
-                //if (s.equals("Вход разрешен")) {
-                //    btnOperations(view);
-                //}
+                PyObject obj = pyobj.callAttr("register", Et1.getText().toString(), Et3.getText().toString(), Et2.getText().toString());
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+                if (s.equals("Вход разрешен")) {
+                    btnOperations(view);
+                }
                 // tv.setText(obj.toString());
             }
         });

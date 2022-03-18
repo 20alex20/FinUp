@@ -74,7 +74,7 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/PASSword"
+        android:id="@+id/password"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -96,7 +96,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:background="#00FFFFFF"
-        android:onClick="btnMain"
         android:textColor="#00FFFFFF"
         app:iconTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/logintable"
