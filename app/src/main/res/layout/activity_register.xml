@@ -126,6 +126,7 @@
         android:layout_marginTop="70dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/todo"
+        android:onClick="btnLogin"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logintable"
