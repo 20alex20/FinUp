@@ -3,16 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_add_expenses.xml" value="0.6160972785176607" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_analytics.xml" value="0.33" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_category.xml" value="0.22" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_graphics.xml" value="0.31354166666666666" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_more.xml" value="0.33" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_operations.xml" value="0.33" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_options.xml" value="0.33" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_register.xml" value="0.39191290824261277" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_scores.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_main.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/1/PycharmProjects2/app/src/main/res/layout/activity_add_expenses.xml" value="0.33" />
+        <entry key="..\:/Users/1/PycharmProjects2/app/src/main/res/layout/activity_analytics.xml" value="0.33" />
+        <entry key="..\:/Users/1/PycharmProjects2/app/src/main/res/layout/activity_category.xml" value="0.33" />
         <entry key="..\:/Users/alexs/AndroidStudioProjects/Application/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>
