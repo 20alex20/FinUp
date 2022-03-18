@@ -19,6 +19,7 @@ public class AddExpenses extends AppCompatActivity {
     CalendarView calendar;
     EditText Et1, Et2, Et3;
     Button Btn;
+    int mYear, mMonth, mDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +42,9 @@ public class AddExpenses extends AppCompatActivity {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                int mYear = year;
-                int mMonth = month;
-                int mDay = dayOfMonth;
+                mYear = year;
+                mMonth = month + 1;
+                mDay = dayOfMonth;
                 String selectedDate = new StringBuilder().append(mMonth + 1)
                         .append("-").append(mDay).append("-").append(mYear)
                         .append(" ").toString();
@@ -61,6 +62,16 @@ public class AddExpenses extends AppCompatActivity {
                 // tv.setText(obj.toString());
             }
         });
+    }
+
+    public void goBack(View view) {
+        Intent intent = new Intent(this, OperationsActivity.class);
+        startActivity(intent);
+    }
+
+    public void goBack(View view) {
+        Intent intent = new Intent(this, OperationsActivity.class);
+        startActivity(intent);
     }
 
     public void goBack(View view) {
