@@ -149,7 +149,7 @@ def login(username_email, password):
 def register(username_email, password, full_name):
     # shutil.copy(dirname(__file__) + "/db.sqlite3", environ["HOME"] + "/")
     # return 'ok'
-    ans = get_data(format(is_there_username_email,  nbvg ))
+    ans = get_data(format(is_there_username_email, username_email))
     if ans:
         return "Аккаунт на эту почту уже зарегистрирован"
     do_query(format(register_query, username_email, generate_password_hash(password), full_name))
