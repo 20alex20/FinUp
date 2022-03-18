@@ -4,23 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_add_expenses.xml" value="0.6160972785176607" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_analytics.xml" value="0.5" />
+        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_analytics.xml" value="0.33" />
         <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_graphics.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_more.xml" value="0.5544554455445545" />
+        <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_more.xml" value="0.33" />
         <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_operations.xml" value="0.33" />
         <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_options.xml" value="0.25" />
         <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_register.xml" value="0.39191290824261277" />
         <entry key="..\:/Users/1/PycharmProjects2/FinUp/app/src/main/res/layout/activity_scores.xml" value="0.31354166666666666" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_add_expenses.xml" value="0.39855072463768115" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_analytics.xml" value="0.39855072463768115" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_graphics.xml" value="0.24818840579710144" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_main.xml" value="0.5" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_more.xml" value="0.5541666666666667" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_operations.xml" value="0.5" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_options.xml" value="0.5541666666666667" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_register.xml" value="0.5541666666666667" />
-        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_scores.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_add_expenses.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_more.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_operations.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_options.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/1/StudioProjects/FinUp/app/src/main/res/layout/activity_register.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/alexs/AndroidStudioProjects/Application/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>

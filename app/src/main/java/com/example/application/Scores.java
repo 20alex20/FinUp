@@ -11,7 +11,7 @@ public class Scores extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_more);
+        setContentView(R.layout.activity_scores);
     }
 
     public void AddExpense(View view) {

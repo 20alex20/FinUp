@@ -14,11 +14,6 @@ public class More extends AppCompatActivity {
         setContentView(R.layout.activity_more);
     }
 
-    public void AddExpense(View view) {
-        Intent intent = new Intent(this, AddExpenses.class);
-        startActivity(intent);
-    }
-
     public void Scores(View view) {
         Intent intent = new Intent(this, Scores.class);
         startActivity(intent);
@@ -26,11 +21,6 @@ public class More extends AppCompatActivity {
 
     public void Analitics(View view) {
         Intent intent = new Intent(this, Analytics.class);
-        startActivity(intent);
-    }
-
-    public void More(View view) {
-        Intent intent = new Intent(this, More.class);
         startActivity(intent);
     }
 

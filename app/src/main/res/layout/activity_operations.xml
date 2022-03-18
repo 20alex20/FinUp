@@ -122,7 +122,7 @@
                         android:layout_marginTop="20dp"
                         android:background="#00FFFFFF"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/icons8__2_100_3"
+                        app:srcCompat="@drawable/plusss"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                 </FrameLayout>
@@ -179,7 +179,7 @@
                         android:background="#00FFFFFF"
                         android:onClick="AddExpense"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/icons8__2_100_3"
+                        app:srcCompat="@drawable/plusss"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                 </FrameLayout>
@@ -239,8 +239,7 @@
                     android:layout_marginStart="52dp"
                     android:layout_marginTop="45dp"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/icons8__2_64_1"
-                    tools:srcCompat="@drawable/icons8__2_64_1" />
+                    app:srcCompat="@drawable/icons8__2_64_1" />
 
                 <TextView
                     android:id="@+id/textView15"
