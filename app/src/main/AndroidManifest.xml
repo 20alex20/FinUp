@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application">
         <activity
+            android:name=".Category"
+            android:exported="false" />
+        <activity
             android:name=".Options"
             android:exported="false" />
         <activity

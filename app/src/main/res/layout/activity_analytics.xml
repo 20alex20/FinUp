@@ -38,41 +38,9 @@
 
         <ImageView
             android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/group_53__1_" />
-
-        <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="375dp"
-            android:layout_height="63dp"
-            android:background="#578C8C8C"
-            app:srcCompat="@drawable/empty" />
-
-        <ImageView
-            android:id="@+id/imageView17"
-            android:layout_width="375dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="63dp"
-            android:background="#578C8C8C"
-            app:srcCompat="@drawable/empty" />
-
-        <ImageView
-            android:id="@+id/imageView19"
-            android:layout_width="375dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="203dp"
-            android:background="#578C8C8C"
-            app:srcCompat="@drawable/empty" />
-
-        <ImageButton
-            android:id="@+id/imageButton8"
-            android:layout_width="375dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="129dp"
-            android:background="#00FFFFFF"
-            app:srcCompat="@drawable/empty"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/analitics" />
 
     </FrameLayout>
 

@@ -38,4 +38,9 @@ public class More extends AppCompatActivity {
         Intent intent = new Intent(this, OperationsActivity.class);
         startActivity(intent);
     }
+
+    public void Options(View view) {
+        Intent intent = new Intent(this, Options.class);
+        startActivity(intent);
+    }
 }

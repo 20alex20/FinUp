@@ -172,7 +172,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="30dp"
-            app:srcCompat="@drawable/icons8__2_100_3" />
+            app:srcCompat="@drawable/plus" />
 
         <TextView
             android:id="@+id/textView27"
