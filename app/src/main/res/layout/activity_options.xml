@@ -11,22 +11,23 @@
     <ImageView
         android:id="@+id/imageView21"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:backgroundTint="#FFFFFF"
         android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/imageButton17"
@@ -177,8 +178,8 @@
                     android:id="@+id/switch1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
                     android:layout_marginStart="340dp"
+                    android:layout_marginTop="14dp"
                     android:minWidth="48dp"
                     android:minHeight="48dp" />
             </FrameLayout>
@@ -205,8 +206,8 @@
                     android:id="@+id/switch2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
                     android:layout_marginStart="340dp"
+                    android:layout_marginTop="14dp"
                     android:minWidth="48dp"
                     android:minHeight="48dp" />
             </FrameLayout>
@@ -233,8 +234,8 @@
                     android:id="@+id/switch3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
                     android:layout_marginStart="340dp"
+                    android:layout_marginTop="14dp"
                     android:minWidth="48dp"
                     android:minHeight="48dp" />
             </FrameLayout>
@@ -261,8 +262,8 @@
                     android:id="@+id/imageButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginTop="14dp"
                     android:layout_marginStart="340dp"
+                    android:layout_marginTop="14dp"
                     android:backgroundTint="#00FFFFFF"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
