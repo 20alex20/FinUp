@@ -15,7 +15,7 @@ public class Category extends AppCompatActivity {
     }
 
     public void OnBack(View view) {
-        Intent intent = new Intent(this, Category.class);
+        Intent intent = new Intent(this, More.class);
         startActivity(intent);
     }
 

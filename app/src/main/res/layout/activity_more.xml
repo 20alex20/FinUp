@@ -105,6 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="82dp"
                     android:background="#00FFFFFF"
+                    android:onClick="AddCategory"
                     app:srcCompat="@drawable/empty" />
 
                 <ImageButton

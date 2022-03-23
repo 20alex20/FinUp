@@ -33,4 +33,9 @@ public class More extends AppCompatActivity {
         Intent intent = new Intent(this, Options.class);
         startActivity(intent);
     }
+
+    public void AddCategory(View view) {
+        Intent intent = new Intent(this, Category.class);
+        startActivity(intent);
+    }
 }
