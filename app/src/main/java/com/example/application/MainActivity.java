@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         Python py = Python.getInstance();
         final PyObject pyobj = py.getModule("main");
 
+        PyObject obj = pyobj.callAttr("start");
+
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

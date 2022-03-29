@@ -1,9 +1,15 @@
 import sqlite3
 from datetime import datetime as dt
 from werkzeug.security import generate_password_hash, check_password_hash
-import shutil
-from os.path import dirname
 from os import environ
+import shutil
+from os.path import dirname, exists
+
+
+def start():
+    if not exists(environ["HOME"] + "/db.sqlite3"):
+        shutil.copy(dirname(__file__) + "/db.sqlite3", environ["HOME"] + "/")
+    return
 
 
 session_file = environ["HOME"] + "/id_user.txt"
