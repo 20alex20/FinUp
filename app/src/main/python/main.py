@@ -1,8 +1,18 @@
 import sqlite3
 from datetime import datetime as dt
 from werkzeug.security import generate_password_hash, check_password_hash
+from os import environ
+import shutil
+from os.path import dirname, exists
 
 
+def start():
+    if not exists(environ["HOME"] + "/db.sqlite3"):
+        shutil.copy(dirname(__file__) + "/db.sqlite3", environ["HOME"] + "/")
+    return
+
+
+session_file = environ["HOME"] + "/id_user.txt"
 def format(string, *args):
     for i in args:
         ind1 = string.index('{')
@@ -11,24 +21,24 @@ def format(string, *args):
     return string
 
 def get_id_user():
-    with open("id_user.txt", "r") as f:
+    with open(session_file, "r") as f:
         return int(f.read().split('.')[0])
 
 def get_full_name():
-    with open("id_user.txt", "r") as f:
+    with open(session_file, "r") as f:
         return f.read().split('.')[2]
 
 def get_username_email():
-    with open("id_user.txt", "r") as f:
+    with open(session_file, "r") as f:
         return f.read().split('.')[1]
 
 def write_all(first, second, third):
     first = str(first)
-    with open("id_user.txt", "w+") as f:
+    with open(session_file, "w+") as f:
         f.write(first + second + third)
 
 
-register_query = 'INSERT INTO users(username_email, password, full_name) ' \
+register_query = 'INSERT INTO users(username_email, password_hash, full_name) ' \
                       'VALUES("{username_email}", "{password_hash}", "{full_name}")'
 login_query = 'SELECT id_user, password_hash, full_name FROM ' \
                    'users WHERE username_email="{username_email}"'
@@ -99,7 +109,7 @@ edit_deposit_query = 'UPDATE deposits SET id_deposit_category={id_deposit_catego
                           'WHERE id_deposit={id_deposit}'
 delete_deposit_query = 'DELETE FROM deposits WHERE id_deposit={id_deposit}'
 
-bd_name = "db.sqlite3"
+bd_name = environ["HOME"] + "/db.sqlite3"
 
 
 def get_data(query):  # для получения данных
@@ -122,8 +132,9 @@ def do_query(query):  # для добавления/изменения данн�
     except FileNotFoundError:
         raise Exception("Файл не найден")
     connection = sqlite3.connect(bd_name)
+    connection.cursor().execute(query)
     try:
-        connection.cursor().execute(query)
+        pass
     except Exception:
         connection.close()
         raise Exception("В доступе отказано")
@@ -131,16 +142,6 @@ def do_query(query):  # для добавления/изменения данн�
     connection.close()
     return "OK"
 
-
-def register(username_email, password, full_name):
-    with open("D:/hh.txt", 'w+') as f:
-        f.write(username_email + ' ' + password + ' ' + full_name)
-    return  'k'
-    # ans = get_data(format(is_there_username_email, username_email))
-    # if ans:
-    #     return "Аккаунт на эту почту уже зарегистрирован"
-    # do_query(format(register_query, username_email, generate_password_hash(password), full_name))
-    # return login(username_email, password)
 
 def login(username_email, password):
     ans = get_data(format(login_query, username_email))
@@ -150,6 +151,16 @@ def login(username_email, password):
         write_all(id_user, full_name, username_email)
         return "Вход разрешен"
     return "В доступе отказано"
+
+def register(username_email, password, full_name):
+    # shutil.copy(dirname(__file__) + "/db.sqlite3", environ["HOME"] + "/")
+    # return 'ok'
+    ans = get_data(format(is_there_username_email, username_email))
+    if ans:
+        return "Аккаунт на эту почту уже зарегистрирован"
+    do_query(format(register_query, username_email, generate_password_hash(password), full_name))
+    return login(username_email, password)
+
 
 
 def edit_about_me(username_email, full_name):

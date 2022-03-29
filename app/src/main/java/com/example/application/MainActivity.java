@@ -24,37 +24,36 @@ public class MainActivity extends AppCompatActivity {
 
     EditText Et1, Et2;
     Button Btn;
-    TextView tv;
-    ImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*Et1 = (EditText)findViewById(R.id.et1);
-        Et2 = (EditText)findViewById(R.id.et2);
-        Btn = (Button)findViewById(R.id.btn);
-        tv = (TextView)findViewById(R.id.text_view);
-        iv = (ImageView)findViewById(R.id.imageView2);
-        iv.setVisibility(View.INVISIBLE);
+        Et1 = (EditText)findViewById(R.id.editTextTextPersonName);
+        Et2 = (EditText)findViewById(R.id.password);
+        Btn = (Button)findViewById(R.id.btn_toop);
 
         if(!Python.isStarted())
             Python.start(new AndroidPlatform(this));
 
         Python py = Python.getInstance();
-        final PyObject pyobj = py.getModule("script");
+        final PyObject pyobj = py.getModule("main");
+
+        PyObject obj = pyobj.callAttr("start");
 
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("main", Et1.getText().toString(), Et2.getText().toString());
-                byte[] ba = obj.toJava(byte[].class);
-                iv.setVisibility(View.VISIBLE);
-                iv.setImageBitmap(BitmapFactory.decodeByteArray(ba,0, ba.length));
+                PyObject obj = pyobj.callAttr("login", Et1.getText().toString(), Et2.getText().toString());
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+                if (s.equals("Вход разрешен")) {
+                    btnMain(view);
+                }
                 // tv.setText(obj.toString());
             }
-        });*/
+        });
     }
     public void btnRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
