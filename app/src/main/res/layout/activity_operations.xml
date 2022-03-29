@@ -260,7 +260,8 @@
                     android:inputType="time"
                     android:text="18:30"
                     android:textColor="#6E6E6E"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
             </FrameLayout>
 
@@ -296,11 +297,12 @@
         android:layout_height="match_parent"
         android:visibility="gone">
 
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#54818181"
+            app:srcCompat="@drawable/empty" />
 
         <ImageView
             android:id="@+id/imageView10"
@@ -308,6 +310,39 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:srcCompat="@drawable/rectangle_39" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="115dp"
+            android:layout_marginBottom="30dp"
+            android:text="Сумма:"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="40dp"
+            android:ems="10"
+            android:hint="1000₽"
+            android:inputType="number" />
+
+        <ImageButton
+            android:id="@+id/imageButton26"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="5dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/_96574" />
+
     </FrameLayout>
 
     <FrameLayout

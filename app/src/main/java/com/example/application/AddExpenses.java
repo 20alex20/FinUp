@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.chaquo.python.PyObject;
@@ -16,7 +19,7 @@ import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class AddExpenses extends AppCompatActivity {
+public class AddExpenses extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     CalendarView calendar;
     EditText Et1, Et2, Et3;
@@ -37,6 +40,14 @@ public class AddExpenses extends AppCompatActivity {
         calendar = (CalendarView)findViewById(R.id.calendarView);
         list1 = (TextInputLayout)findViewById(R.id.editTextBillCateg);
         list2 = (TextInputLayout)findViewById(R.id.editTextBillCateg2);
+        cls.setVisibility(ImageView.INVISIBLE);
+        calendar.setVisibility(CalendarView.INVISIBLE);
+
+        Spinner spinner = findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.chs_categ, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
 
         if(!Python.isStarted())
@@ -45,8 +56,8 @@ public class AddExpenses extends AppCompatActivity {
         Python py = Python.getInstance();
         final PyObject pyobj = py.getModule("main");
 
-        PyObject obj = pyobj.callAttr("get_categories");
-        String[][] array = obj.toJava(String[][].class);
+        //PyObject obj = pyobj.callAttr("get_categories");
+        //String[][] array = obj.toJava(String[][].class);
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -54,8 +65,8 @@ public class AddExpenses extends AppCompatActivity {
                 int mYear = year;
                 int mMonth = month + 1;
                 int mDay = dayOfMonth;
-                String selectedDate = new StringBuilder().append(mMonth)
-                        .append(".").append(mDay).append(".").append(mYear).toString();
+                String selectedDate = new StringBuilder().append(mDay)
+                        .append("/").append(mMonth).append("/").append(mYear).toString();
                 Et3.setText(selectedDate);
             }
         });
@@ -85,5 +96,16 @@ public class AddExpenses extends AppCompatActivity {
     public void close(View view) {
         cls.setVisibility(ImageView.INVISIBLE);
         calendar.setVisibility(CalendarView.INVISIBLE);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String text = adapterView.getItemAtPosition(i).toString();
+        Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

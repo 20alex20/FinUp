@@ -96,7 +96,7 @@
                     android:id="@+id/imageButton13"
                     android:layout_width="wrap_content"
                     android:layout_height="500dp"
-                    android:background="#00FFFFFF"
+                    android:background="#97FFFFFF"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/morevse"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -124,6 +124,7 @@
                     android:layout_height="83dp"
                     android:layout_marginTop="82dp"
                     android:background="#9A9F9F9F"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/empty" />
 
                 <ImageButton
@@ -140,6 +141,7 @@
                     android:layout_height="82dp"
                     android:layout_marginTop="246dp"
                     android:background="#9A9F9F9F"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/empty" />
 
             </FrameLayout>

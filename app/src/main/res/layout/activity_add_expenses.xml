@@ -10,6 +10,7 @@
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,20 +43,17 @@
         android:layout_marginBottom="5dp"
         android:text="Категория"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBillCateg"
+        app:layout_constraintBottom_toTopOf="@+id/spinner1"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextBillCateg"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+    <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
-        android:ems="10"
-        android:hint="Не выбрана"
-        android:inputType="text"
-        android:textColor="#000000"
-        android:textColorHint="#6E6E6E"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -150,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="500dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="date"
         android:minHeight="48dp"
         android:textColor="#80000000"
         app:layout_constraintStart_toStartOf="parent"
@@ -161,12 +159,11 @@
         android:id="@+id/imageButton5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginStart="25dp"
         android:background="#00FFFFFF"
         android:onClick="open"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextBillName3"
+        app:layout_constraintStart_toEndOf="@+id/editTextBillName3"
         app:srcCompat="@drawable/icons8__100_1"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -174,6 +171,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Добавить"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextBillName3" />
@@ -182,23 +180,20 @@
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFB75E"
-        android:focusedMonthDateColor="#FFFFFF"
+        android:background="@drawable/bg_calen"
         android:foregroundGravity="center"
-        android:visibility="visible"
+        android:selectedDateVerticalBar="@android:color/holo_orange_light"
         app:barrierMargin="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="33dp"
         android:layout_height="28dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="2dp"
         android:onClick="close"
         app:layout_constraintEnd_toEndOf="@+id/calendarView"

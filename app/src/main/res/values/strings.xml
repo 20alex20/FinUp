@@ -13,4 +13,10 @@
     <string name="todo">TODO</string>
     <string name="email">Email</string>
     <string name="Gift">Подарки</string>
+
+    <string-array name="chs_categ">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+    </string-array>
 </resources>

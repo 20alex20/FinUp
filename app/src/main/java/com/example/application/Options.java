@@ -18,4 +18,9 @@ public class Options extends AppCompatActivity {
         Intent intent = new Intent(this, More.class);
         startActivity(intent);
     }
+
+    public void Login(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

@@ -70,14 +70,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout12">
 
-        <ImageView
-            android:id="@+id/imageView19"
-            android:layout_width="315dp"
-            android:layout_height="114dp"
+        <ImageButton
+            android:id="@+id/imageButton25"
+            android:layout_width="312dp"
+            android:layout_height="117dp"
             android:layout_gravity="center"
-            android:background="#00FFFFFF"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/krytaya_knopka" />
+            android:layout_marginTop="5dp"
+            android:background="#FFFFFF"
+            android:onClick="OnBack"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/krytaya_knopka"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textView39"
@@ -87,16 +90,6 @@
             android:text="Добавить"
             android:textColor="#000000"
             android:textSize="24sp" />
-
-        <ImageButton
-            android:id="@+id/imageButton25"
-            android:layout_width="312dp"
-            android:layout_height="117dp"
-            android:layout_gravity="center"
-            android:background="#00FFFFFF"
-            android:onClick="OnBack"
-            app:srcCompat="@drawable/empty"
-            tools:ignore="SpeakableTextPresentCheck" />
 
     </FrameLayout>
 
@@ -115,9 +108,9 @@
             android:layout_gravity="bottom"
             android:layout_marginStart="16dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="Name" />
+            android:hint="Бензин, Инструменты, Дети..."
+            android:inputType="text"
+            android:minHeight="48dp" />
 
         <TextView
             android:id="@+id/textView37"
