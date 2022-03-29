@@ -14,11 +14,6 @@ public class Analytics extends AppCompatActivity {
         setContentView(R.layout.activity_analytics);
     }
 
-    public void AddExpense(View view) {
-        Intent intent = new Intent(this, AddExpenses.class);
-        startActivity(intent);
-    }
-
     public void Scores(View view) {
         Intent intent = new Intent(this, Scores.class);
         startActivity(intent);
@@ -36,6 +31,11 @@ public class Analytics extends AppCompatActivity {
 
     public void Operations(View view) {
         Intent intent = new Intent(this, OperationsActivity.class);
+        startActivity(intent);
+    }
+
+    public void Graphics(View view) {
+        Intent intent = new Intent(this, Graphics.class);
         startActivity(intent);
     }
 }

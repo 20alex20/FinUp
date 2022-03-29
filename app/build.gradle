@@ -27,7 +27,7 @@ android {
         }
 
         python{
-            buildPython "C:\\Users\\user\\PycharmProjects\\workk\\venv\\Scripts\\python.exe"
+            buildPython "C:\\Users\\Anton\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
             pip {
                 install "matplotlib"
                 install "pysqlite3"

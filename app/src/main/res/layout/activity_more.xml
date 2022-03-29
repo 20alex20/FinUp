@@ -71,9 +71,10 @@
                     android:backgroundTint="#00FFFFFF"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
+                    android:onClick="Login"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/icons8__150_1"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </FrameLayout>
 
             <ImageButton

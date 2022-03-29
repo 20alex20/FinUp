@@ -28,13 +28,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icons8___90_1" />
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="150dp"
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginTop="200dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_60" />
+
+    <ImageButton
+        android:id="@+id/imageButton24"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginTop="200dp"
+        android:background="#00FFFFFF"
+        android:onClick="Graphics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -148,17 +164,5 @@
         </LinearLayout>
 
     </FrameLayout>
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:layout_marginTop="200dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_60" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
