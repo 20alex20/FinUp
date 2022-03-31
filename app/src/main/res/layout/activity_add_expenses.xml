@@ -167,15 +167,6 @@
         app:srcCompat="@drawable/icons8__100_1"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Добавить"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBillName3" />
-
     <FrameLayout
         android:id="@+id/frame1"
         android:layout_width="match_parent"
@@ -208,5 +199,18 @@
             android:onClick="close"
             app:srcCompat="@drawable/icons8_macos__32" />
     </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBillName3"
+        app:srcCompat="@drawable/plusss" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
