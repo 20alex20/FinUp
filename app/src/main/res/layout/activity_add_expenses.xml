@@ -48,10 +48,10 @@
 
     <Spinner
         android:id="@+id/spinner1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -167,15 +167,6 @@
         app:srcCompat="@drawable/icons8__100_1"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Добавить"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBillName3" />
-
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
@@ -199,5 +190,18 @@
         app:layout_constraintEnd_toEndOf="@+id/calendarView"
         app:layout_constraintTop_toTopOf="@+id/calendarView"
         app:srcCompat="@drawable/icons8_macos__32" />
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBillName3"
+        app:srcCompat="@drawable/plusss" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
