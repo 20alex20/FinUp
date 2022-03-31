@@ -27,7 +27,6 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
     EditText Et1, Et2, Et3;
     ImageView cls;
     ImageButton Btn;
-    TextInputLayout list1, list2;
     FrameLayout frame;
 
     @Override
@@ -35,22 +34,26 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_expenses);
 
-        Et1 = (EditText)findViewById(R.id.editTextBillName);
-        Et2 = (EditText)findViewById(R.id.editTextBillName2);
+        Et1 = (EditText)findViewById(R.id.editTextBillComm);
+        Et2 = (EditText)findViewById(R.id.editSumm);
         Et3 = (EditText)findViewById(R.id.editTextBillName3);
         cls = (ImageView)findViewById(R.id.imageView16);
         frame = (FrameLayout)findViewById(R.id.frame1);
         Btn = (ImageButton)findViewById(R.id.button);
         calendar = (CalendarView)findViewById(R.id.calendarView);
-        list1 = (TextInputLayout)findViewById(R.id.editTextBillCateg);
-        list2 = (TextInputLayout)findViewById(R.id.editTextBillCateg2);
+
         frame.setVisibility(ImageView.INVISIBLE);
 
-        Spinner spinner = findViewById(R.id.spinner1);
+        Spinner spinner1 = findViewById(R.id.spinner1);
+        Spinner spinner2 = findViewById(R.id.spinner2);
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.chs_categ, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+
+        spinner1.setAdapter(adapter);
+        spinner1.setOnItemSelectedListener(this);
+        spinner2.setAdapter(adapter);
+        spinner2.setOnItemSelectedListener(this);
 
 
         if(!Python.isStarted())
@@ -102,7 +105,6 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String text = adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_LONG).show();
     }
 
     @Override

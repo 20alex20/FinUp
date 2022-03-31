@@ -49,8 +49,18 @@
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="195dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,21 +74,8 @@
         android:layout_marginBottom="5dp"
         android:text="Счет"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBillCateg2"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextBillCateg2"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
-        android:ems="10"
-        android:hint="Не выбрана"
-        android:inputType="text"
-        android:textColor="#000000"
-        android:textColorHint="#6E6E6E"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -89,11 +86,11 @@
         android:layout_marginBottom="5dp"
         android:text="Комментарий"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBillName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextBillComm"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextBillName"
+        android:id="@+id/editTextBillComm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="290dp"
@@ -114,11 +111,11 @@
         android:layout_marginBottom="5dp"
         android:text="Потраченная сумма"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBillName2"
+        app:layout_constraintBottom_toTopOf="@+id/editSumm"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextBillName2"
+        android:id="@+id/editSumm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="390dp"
@@ -171,6 +168,7 @@
         android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
