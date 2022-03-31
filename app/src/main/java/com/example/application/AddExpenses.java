@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,8 +25,8 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
 
     CalendarView calendar;
     EditText Et1, Et2, Et3;
-    Button Btn;
     ImageView cls;
+    ImageButton Btn;
     TextInputLayout list1, list2;
     FrameLayout frame;
 
@@ -39,7 +40,7 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
         Et3 = (EditText)findViewById(R.id.editTextBillName3);
         cls = (ImageView)findViewById(R.id.imageView16);
         frame = (FrameLayout)findViewById(R.id.frame1);
-        Btn = (Button)findViewById(R.id.button);
+        Btn = (ImageButton)findViewById(R.id.button);
         calendar = (CalendarView)findViewById(R.id.calendarView);
         list1 = (TextInputLayout)findViewById(R.id.editTextBillCateg);
         list2 = (TextInputLayout)findViewById(R.id.editTextBillCateg2);
