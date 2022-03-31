@@ -176,28 +176,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextBillName3" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_calen"
-        android:foregroundGravity="center"
-        android:selectedDateVerticalBar="@android:color/holo_orange_light"
-        app:barrierMargin="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="33dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="2dp"
-        android:onClick="close"
-        app:layout_constraintEnd_toEndOf="@+id/calendarView"
-        app:layout_constraintTop_toTopOf="@+id/calendarView"
-        app:srcCompat="@drawable/icons8_macos__32" />
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#54818181"
+            app:srcCompat="@drawable/empty" />
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_calen"
+            android:selectedDateVerticalBar="@android:color/holo_orange_light"
+            app:barrierMargin="5dp" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="33dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="344dp"
+            android:layout_marginTop="202dp"
+            android:onClick="close"
+            app:srcCompat="@drawable/icons8_macos__32" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

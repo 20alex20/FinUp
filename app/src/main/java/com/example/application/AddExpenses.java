@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
     Button Btn;
     ImageView cls;
     TextInputLayout list1, list2;
+    FrameLayout frame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,12 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
         Et2 = (EditText)findViewById(R.id.editTextBillName2);
         Et3 = (EditText)findViewById(R.id.editTextBillName3);
         cls = (ImageView)findViewById(R.id.imageView16);
+        frame = (FrameLayout)findViewById(R.id.frame1);
         Btn = (Button)findViewById(R.id.button);
         calendar = (CalendarView)findViewById(R.id.calendarView);
         list1 = (TextInputLayout)findViewById(R.id.editTextBillCateg);
         list2 = (TextInputLayout)findViewById(R.id.editTextBillCateg2);
-        cls.setVisibility(ImageView.INVISIBLE);
-        calendar.setVisibility(CalendarView.INVISIBLE);
+        frame.setVisibility(ImageView.INVISIBLE);
 
         Spinner spinner = findViewById(R.id.spinner1);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.chs_categ, android.R.layout.simple_spinner_item);
@@ -89,13 +91,11 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
     }
 
     public void open(View view) {
-        cls.setVisibility(ImageView.VISIBLE);
-        calendar.setVisibility(CalendarView.VISIBLE);
+        frame.setVisibility(ImageView.VISIBLE);
     }
 
     public void close(View view) {
-        cls.setVisibility(ImageView.INVISIBLE);
-        calendar.setVisibility(CalendarView.INVISIBLE);
+        frame.setVisibility(ImageView.INVISIBLE);
     }
 
     @Override

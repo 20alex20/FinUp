@@ -121,6 +121,7 @@
                         android:layout_marginStart="120dp"
                         android:layout_marginTop="20dp"
                         android:background="#00FFFFFF"
+                        android:onClick="open"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/plus"
                         tools:ignore="SpeakableTextPresentCheck" />
@@ -293,9 +294,12 @@
     </ScrollView>
 
     <FrameLayout
+        android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView19"
@@ -340,8 +344,9 @@
             android:layout_marginStart="120dp"
             android:layout_marginTop="5dp"
             android:background="#00FFFFFF"
+            android:onClick="close"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/_96574" />
+            app:srcCompat="@drawable/exit" />
 
     </FrameLayout>
 
