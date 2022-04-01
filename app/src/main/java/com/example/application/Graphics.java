@@ -55,12 +55,12 @@ public class Graphics extends AppCompatActivity {
         Btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("graph", Et1.getText().toString(), Et2.getText().toString(), Et1.getText().toString(), Et2.getText().toString());
-                String s = obj.toString();
-                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
-                //byte[] ba = obj.toJava(byte[].class);
-                //iv.setVisibility(View.VISIBLE);
-                //iv.setImageBitmap(BitmapFactory.decodeByteArray(ba,0, ba.length));
+                PyObject obj = pyobj.callAttr("graph", true, "pie", Et1.getText().toString(), Et2.getText().toString());
+                //String s = obj.toString();
+                //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+                byte[] ba = obj.toJava(byte[].class);
+                iv.setVisibility(View.VISIBLE);
+                iv.setImageBitmap(BitmapFactory.decodeByteArray(ba,0, ba.length));
             }
         });
         Btn3.setOnClickListener(new View.OnClickListener() {

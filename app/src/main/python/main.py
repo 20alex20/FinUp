@@ -35,7 +35,7 @@ def get_username_email():
 def write_all(first, second, third):
     first = str(first)
     with open(session_file, "w+") as f:
-        f.write(first + second + third)
+        f.write(first + '.' + second + '.' + third)
 
 
 register_query = 'INSERT INTO users(username_email, password_hash, full_name) ' \

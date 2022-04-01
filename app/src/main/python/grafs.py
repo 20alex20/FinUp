@@ -1,20 +1,26 @@
 import matplotlib.pyplot as plt
-import datetime as dt
+import matplotlib
+#import datetime as dt
+from datetime import date, timedelta
 import numpy as np
-import main
+from main import *
 from io import BytesIO
 
 
 def f(type: bool, time_mode: int, args):
-    categories = main.get_categories()
+    categories = get_categories()
     labels = []
     sums = []
     for id_category, name, description in categories:
         cursum = 0
-        date_start = dt.date(*(list(args[:time_mode]) + [1] * (3 - time_mode)))
-        date_stop = dt.date(*(list(args[time_mode:]) + [1] * (3 - time_mode)))
-        for id_purchase, sum, date in main.get_purchase_deposit(type, id_category):
-            if date_start <= dt.date(*map(int, date.split('.')[::-1])) < date_stop:
+        start = list(args[:time_mode]) + [1] * (3 - time_mode)
+        end = list(args[time_mode:]) + [1] * (3 - time_mode)
+        date_start = date(*start)
+        date_stop = date(*end)
+        #date_start = dt.date(*(list(args[:time_mode]) + [1] * (3 - time_mode)))
+        #date_stop = dt.date(*(list(args[time_mode:]) + [1] * (3 - time_mode)))
+        for id_purchase, sum, datee in get_purchase_deposit(type, id_category):
+            if date_start <= date(*map(int, datee.split('.')[::-1])) < date_stop:
                 cursum += sum
         labels.append(name)
         sums.append(cursum)
@@ -23,27 +29,27 @@ def f(type: bool, time_mode: int, args):
 
 def dn(time_mode, date_start):
     if time_mode == 1:
-        date_start = dt.date(date_start.year + 1, date_start.month, date_start.day)
+        date_start = date(date_start.year + 1, date_start.month, date_start.day)
     elif time_mode == 2:
         if date_start.month == 11:
-            date_start = dt.date(date_start.year + 1, 1, date_start.day)
+            date_start = date(date_start.year + 1, 1, date_start.day)
         else:
-            date_start = dt.date(date_start.year, date_start.month + 1, date_start.day)
+            date_start = date(date_start.year, date_start.month + 1, date_start.day)
     else:
-        date_start = date_start + dt.timedelta(days=1)
+        date_start = date_start + timedelta(days=1)
     return date_start
 
 
 def f2(type: bool, time_mode: int, args):
     labels = []
     cs = {}
-    categories = main.get_categories()
+    categories = get_categories()
     for id_category, name, description in categories:
         cs[name] = []
 
-    date_start = dt.date(*(list(args[:len(args) // 2]) + [1] * (3 - time_mode)))
+    date_start = date(*(list(args[:len(args) // 2]) + [1] * (3 - time_mode)))
     date_next = dn(time_mode, date_start)
-    date_stop = dt.date(*(list(args[len(args) // 2:]) + [1] * (3 - time_mode)))
+    date_stop = date(*(list(args[len(args) // 2:]) + [1] * (3 - time_mode)))
     while date_start < date_stop:
         labels.append('.'.join(date_start.strftime("%d.%m.%Y").split('.')[3 - time_mode:]))
         arggs = [date_start.year, date_start.month, date_start.day][:time_mode] + \
@@ -55,11 +61,10 @@ def f2(type: bool, time_mode: int, args):
     return cs, labels
 
 
-def graph(type: str, mode: str, one: str, two: str):  # year_start, month_start, day_start, year_stop, month_stop, day_stop
+def graph(type: bool, mode: str, one: str, two: str):  # year_start, month_start, day_start, year_stop, month_stop, day_stop
     time_mode = one.count(".") + 1
     args = [int(i) for i in one.split('.')[::-1] + two.split('.')[::-1]]
-    fig, ax = plt.subplots(figsize=(5, 2.7), layout='constrained')
-    return str(args)
+    fig, ax = plt.subplots(figsize=(5, 2.7))
     if mode == "plot":
         cs, labels = f2(type, time_mode, args)
         for category, sums in cs.items():
@@ -88,7 +93,7 @@ def graph(type: str, mode: str, one: str, two: str):  # year_start, month_start,
         ax.set_ylabel('Рубли')
         ax.set_xticks(x, labels)
         ax.set_title('Cуммы по категориям')
-        ax.bar_label(rects2, padding=3)
+        # ax.bar_label(rects2, padding=3)
     elif mode == 'bar2':
         cs, labels = f2(type, time_mode, args)
         ind = np.arange(len(tuple(cs.values())[0]))
@@ -106,6 +111,6 @@ def graph(type: str, mode: str, one: str, two: str):  # year_start, month_start,
         ax.set_xticks(ind, labels=labels)
         ax.legend()
 
-    f = BytesIO()
-    plt.savefig(f, format="png")
-    return f.getvalue()
+    bi = BytesIO()
+    plt.savefig(bi, format="png")
+    return bi.getvalue()
