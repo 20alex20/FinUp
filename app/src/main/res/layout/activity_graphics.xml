@@ -36,36 +36,26 @@
 
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="85dp"
-        android:text="От:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextfrom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="75dp"
-        android:ems="10"
-        android:hint="день.месяц.год"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="216dp"
         android:text="До:"
-        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="152dp"
+        android:text="От:"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +64,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="212dp"
+        android:ems="10"
+        android:hint="день.месяц.год"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextfrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="148dp"
         android:ems="10"
         android:hint="день.месяц.год"
         android:inputType="textPersonName"
@@ -82,26 +84,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="28dp"
         android:background="#00FFFFFF"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icons8__100_1"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="28dp"
         android:background="#00FFFFFF"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icons8__100_1"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -116,10 +118,32 @@
         app:srcCompat="@drawable/__96574" />
 
     <ImageButton
+        android:id="@+id/imageButton31"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="72dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/imageButton32"
+        app:layout_constraintTop_toBottomOf="@+id/imageView22"
+        app:srcCompat="@drawable/column__1_" />
+
+    <ImageButton
+        android:id="@+id/imageButton30"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="72dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/imageButton27"
+        app:layout_constraintTop_toBottomOf="@+id/imageView22"
+        app:srcCompat="@drawable/pie__1_" />
+
+    <ImageButton
         android:id="@+id/imageButton27"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="72dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,32 +152,10 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton30"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="36dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toEndOf="@+id/imageButton27"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
-        app:srcCompat="@drawable/pie__1_" />
-
-    <ImageButton
-        android:id="@+id/imageButton31"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="36dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toEndOf="@+id/imageButton32"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
-        app:srcCompat="@drawable/column__1_" />
-
-    <ImageButton
         android:id="@+id/imageButton32"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="72dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/imageButton30"

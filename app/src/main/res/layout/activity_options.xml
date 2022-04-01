@@ -294,6 +294,7 @@
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/rectangle_48"
                 tools:ignore="SpeakableTextPresentCheck" />
+
         </LinearLayout>
     </ScrollView>
 

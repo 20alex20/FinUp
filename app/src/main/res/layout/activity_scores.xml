@@ -68,21 +68,21 @@
 
     <ImageButton
         android:id="@+id/imageButton6"
-        android:layout_width="188dp"
-        android:layout_height="224dp"
+        android:layout_width="185dp"
+        android:layout_height="137dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="192dp"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_61"
+        app:srcCompat="@drawable/biglus"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <FrameLayout
         android:id="@+id/frameLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="400dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -91,6 +91,7 @@
             android:id="@+id/imageView11"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="30dp"
             app:srcCompat="@drawable/icons8__123" />
 
@@ -98,6 +99,7 @@
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="80dp"
             android:layout_marginTop="8dp"
             android:text="Наличные"
@@ -108,6 +110,7 @@
             android:id="@+id/textView24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="340dp"
             android:layout_marginTop="8dp"
             android:text="0₽"
@@ -118,7 +121,7 @@
     <FrameLayout
         android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
@@ -127,6 +130,7 @@
             android:id="@+id/imageView12"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="30dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/icons8___100_2" />
@@ -135,6 +139,7 @@
             android:id="@+id/textView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="80dp"
             android:layout_marginTop="8dp"
             android:text="Карта 1"
@@ -145,6 +150,7 @@
             android:id="@+id/textView26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="340dp"
             android:layout_marginTop="8dp"
             android:text="0₽"
@@ -154,7 +160,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
@@ -163,6 +169,7 @@
             android:id="@+id/imageButton7"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
             android:background="#00FFFFFF"
             app:srcCompat="@drawable/empty"
             tools:ignore="TouchTargetSizeCheck" />
@@ -171,6 +178,7 @@
             android:id="@+id/imageView13"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="30dp"
             app:srcCompat="@drawable/plus" />
 
@@ -178,6 +186,7 @@
             android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="80dp"
             android:layout_marginTop="8dp"
             android:text="Добавить карту"
