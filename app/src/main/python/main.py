@@ -35,7 +35,7 @@ def get_username_email():
 def write_all(first, second, third):
     first = str(first)
     with open(session_file, "w+") as f:
-        f.write(first + second + third)
+        f.write(first + '.'+ second + '.' + third)
 
 
 register_query = 'INSERT INTO users(username_email, password_hash, full_name) ' \
@@ -152,6 +152,8 @@ def login(username_email, password):
         return "Вход разрешен"
     return "В доступе отказано"
 
+
+default = ["Автомобиль", "Отдых и развлечения", "Продукты", "Кафе и растораны", "Одежда", "Здоровье и фитнес", "Подарки", "Поездки"]
 def register(username_email, password, full_name):
     # shutil.copy(dirname(__file__) + "/db.sqlite3", environ["HOME"] + "/")
     # return 'ok'
@@ -159,8 +161,12 @@ def register(username_email, password, full_name):
     if ans:
         return "Аккаунт на эту почту уже зарегистрирован"
     do_query(format(register_query, username_email, generate_password_hash(password), full_name))
-    return login(username_email, password)
-
+    message = login(username_email, password)
+    if message == "Вход разрешен":
+        for i in default:
+            add_category(i, "")
+        # add_bank_account("Наличка", 0, "")
+    return message
 
 
 def edit_about_me(username_email, full_name):
@@ -192,7 +198,11 @@ def add_category(name, description):
     return "Данные изменены"
 
 def get_categories():
-    return get_data(format(get_categories_query, get_id_user()))
+    ans = []
+    for a, b, c in get_data(format(get_categories_query, get_id_user())):
+        ans.append(str(a))
+        ans.append(b)
+    return ans
 
 def edit_category(id_category, name, description):
     ans = get_data(format(is_there_category, name, get_id_user()))

@@ -21,13 +21,19 @@ import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class AddExpenses extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import java.lang.reflect.Array;
+
+public class AddExpenses extends AppCompatActivity {
 
     CalendarView calendar;
     EditText Et1, Et2, Et3;
     ImageView cls;
     ImageButton Btn;
     FrameLayout frame;
+
+    private String[] strings;
+    private int[] ints;
+    private String[] bnkaccs = {"card1", "card2"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,17 +50,28 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
 
         frame.setVisibility(ImageView.INVISIBLE);
 
-        Spinner spinner1 = findViewById(R.id.spinner1);
-        Spinner spinner2 = findViewById(R.id.spinner2);
+        Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
+        Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.chs_categ, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner1.setAdapter(adapter);
-        spinner1.setOnItemSelectedListener(this);
-        spinner2.setAdapter(adapter);
-        spinner2.setOnItemSelectedListener(this);
-
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String text = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String text = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
 
         if(!Python.isStarted())
             Python.start(new AndroidPlatform(this));
@@ -62,8 +79,22 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
         Python py = Python.getInstance();
         final PyObject pyobj = py.getModule("main");
 
-        //PyObject obj = pyobj.callAttr("get_categories");
-        //String[][] array = obj.toJava(String[][].class);
+        PyObject obj = pyobj.callAttr("get_categories");
+        String[] id_name = obj.toJava(String[].class);
+        ints = new int[id_name.length / 2];
+        strings = new String[id_name.length / 2];
+        for (int i = 0; i < id_name.length; i += 2) {
+            ints[i / 2] = Integer.parseInt(id_name[i]);
+            strings[i / 2] = id_name[i + 1];
+        }
+        Toast.makeText(getApplicationContext(),id_name.length + "",Toast.LENGTH_LONG).show();
+
+        ArrayAdapter<String> categorAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, strings);
+        categorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> accountsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bnkaccs);
+        accountsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(categorAdapter);
+        spinner2.setAdapter(accountsAdapter);
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -102,13 +133,4 @@ public class AddExpenses extends AppCompatActivity implements AdapterView.OnItem
         frame.setVisibility(ImageView.INVISIBLE);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String text = adapterView.getItemAtPosition(i).toString();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 }
