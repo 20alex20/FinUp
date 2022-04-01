@@ -55,10 +55,11 @@ def f2(type: bool, time_mode: int, args):
     return cs, labels
 
 
-def graph(type: bool, mode: str, one: str, two: str):  # year_start, month_start, day_start, year_stop, month_stop, day_stop
+def graph(type: str, mode: str, one: str, two: str):  # year_start, month_start, day_start, year_stop, month_stop, day_stop
     time_mode = one.count(".") + 1
     args = [int(i) for i in one.split('.')[::-1] + two.split('.')[::-1]]
     fig, ax = plt.subplots(figsize=(5, 2.7), layout='constrained')
+    return str(args)
     if mode == "plot":
         cs, labels = f2(type, time_mode, args)
         for category, sums in cs.items():

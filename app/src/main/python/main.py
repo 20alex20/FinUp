@@ -140,6 +140,7 @@ def do_query(query):  # для добавления/изменения данн�
         raise Exception("В доступе отказано")
     connection.commit()
     connection.close()
+    a = (1, 2)
     return "OK"
 
 
