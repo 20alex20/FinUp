@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -19,9 +18,6 @@ import android.widget.Toast;
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
-import com.google.android.material.textfield.TextInputLayout;
-
-import java.lang.reflect.Array;
 
 public class AddExpenses extends AppCompatActivity {
 
@@ -31,9 +27,9 @@ public class AddExpenses extends AppCompatActivity {
     ImageButton Btn;
     FrameLayout frame;
 
-    private String[] strings;
-    private int[] ints;
-    private String[] bnkaccs = {"card1", "card2"};
+    private String[] name_categories, name_bank_accounts;
+    private int[] id_categories, id_bank_accounts;
+    int i1 = 0, i2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +53,8 @@ public class AddExpenses extends AppCompatActivity {
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String text = adapterView.getItemAtPosition(i).toString();
+                i1 = i;
+                // Toast.makeText(getApplicationContext(),i1 + "",Toast.LENGTH_LONG).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -66,7 +63,7 @@ public class AddExpenses extends AppCompatActivity {
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String text = adapterView.getItemAtPosition(i).toString();
+                i2 = i;
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -79,21 +76,35 @@ public class AddExpenses extends AppCompatActivity {
         Python py = Python.getInstance();
         final PyObject pyobj = py.getModule("main");
 
-        PyObject obj = pyobj.callAttr("get_categories");
-        String[] id_name = obj.toJava(String[].class);
-        ints = new int[id_name.length / 2];
-        strings = new String[id_name.length / 2];
-        for (int i = 0; i < id_name.length; i += 2) {
-            ints[i / 2] = Integer.parseInt(id_name[i]);
-            strings[i / 2] = id_name[i + 1];
-        }
-        Toast.makeText(getApplicationContext(),id_name.length + "",Toast.LENGTH_LONG).show();
+        int cut = 2;
 
-        ArrayAdapter<String> categorAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, strings);
+        PyObject list = pyobj.callAttr("get_categories");
+        PyObject obj = pyobj.callAttr("to_line_list", list, cut);
+        String[] arr = obj.toJava(String[].class);
+        id_categories = new int[arr.length / cut];
+        name_categories = new String[arr.length / cut];
+        for (int i = 0; i < arr.length; i += cut) {
+            id_categories[i / cut] = Integer.parseInt(arr[i]);
+            name_categories[i / cut] = arr[i + 1];
+        }
+
+        ArrayAdapter<String> categorAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, name_categories);
         categorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        ArrayAdapter<String> accountsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bnkaccs);
-        accountsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(categorAdapter);
+
+        cut = 3;
+        PyObject list2 = pyobj.callAttr("get_bank_accounts");
+        PyObject obj2 = pyobj.callAttr("to_line_list", list2, cut);
+        String[] arr2 = obj2.toJava(String[].class);
+        id_bank_accounts = new int[arr2.length / cut];
+        name_bank_accounts = new String[arr2.length / cut];
+        for (int i = 0; i < arr2.length; i += cut) {
+            id_bank_accounts[i / cut] = Integer.parseInt(arr2[i]);
+            name_bank_accounts[i / cut] = arr2[i + 1] + " (" + arr2[i + 2] + "₽)";
+        }
+
+        ArrayAdapter<String> accountsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, name_bank_accounts);
+        accountsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(accountsAdapter);
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -103,7 +114,7 @@ public class AddExpenses extends AppCompatActivity {
                 int mMonth = month + 1;
                 int mDay = dayOfMonth;
                 String selectedDate = new StringBuilder().append(mDay)
-                        .append("/").append(mMonth).append("/").append(mYear).toString();
+                        .append(".").append(mMonth).append(".").append(mYear).toString();
                 Et3.setText(selectedDate);
             }
         });
@@ -111,11 +122,10 @@ public class AddExpenses extends AppCompatActivity {
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("add_deposit", Et1.getText().toString(), Et3.getText().toString(), Et2.getText().toString());
+                PyObject obj = pyobj.callAttr("add_deposit", id_categories[i1], id_bank_accounts[i2], Et2.getText().toString(), Et3.getText().toString(), Et1.getText().toString());
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
                 goBack(view);
-                // tv.setText(obj.toString());
             }
         });
     }
