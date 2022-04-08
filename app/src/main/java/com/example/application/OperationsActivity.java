@@ -31,6 +31,10 @@ public class OperationsActivity extends AppCompatActivity {
         frame.setVisibility(ImageView.INVISIBLE);
     }
 
+    public void AddIncomes(View view) {
+        Intent intent = new Intent(this, AddIncomes.class);
+        startActivity(intent);
+    }
 
     public void AddExpense(View view) {
         Intent intent = new Intent(this, AddExpenses.class);

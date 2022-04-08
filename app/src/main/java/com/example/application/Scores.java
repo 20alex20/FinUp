@@ -41,7 +41,7 @@ public class Scores extends AppCompatActivity {
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //wwwPyObject obj = pyobj.callAttr("add_bank_account", Et1.getText().toString(), 0);
+                PyObject obj = pyobj.callAttr("add_bank_account", Et1.getText().toString(), 0);
                 frame.setVisibility(ImageView.INVISIBLE);
                 Toast.makeText(getApplicationContext(),"SAVED",Toast.LENGTH_LONG).show();
             }

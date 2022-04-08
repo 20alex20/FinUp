@@ -21,7 +21,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="95dp"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -121,7 +121,7 @@
                         android:layout_marginStart="120dp"
                         android:layout_marginTop="20dp"
                         android:background="#00FFFFFF"
-                        android:onClick="open"
+                        android:onClick="AddIncomes"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/plus"
                         tools:ignore="SpeakableTextPresentCheck" />
@@ -297,7 +297,7 @@
         android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

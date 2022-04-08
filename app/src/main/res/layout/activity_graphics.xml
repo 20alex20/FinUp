@@ -107,58 +107,59 @@
 
     <ImageView
         android:id="@+id/imageView22"
-        android:layout_width="362dp"
-        android:layout_height="245dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTo"
         app:srcCompat="@drawable/__96574" />
 
-    <ImageButton
-        android:id="@+id/imageButton27"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="36dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
-        app:srcCompat="@drawable/sctack__1_"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView22">
 
-    <ImageButton
-        android:id="@+id/imageButton30"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="36dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toEndOf="@+id/imageButton27"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
-        app:srcCompat="@drawable/pie__1_" />
+        <ImageButton
+            android:id="@+id/imageButton27"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="20dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/sctack__1_"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageButton
-        android:id="@+id/imageButton31"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="36dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toEndOf="@+id/imageButton32"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
-        app:srcCompat="@drawable/column__1_" />
+        <ImageButton
+            android:id="@+id/imageButton30"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="20dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/pie__1_" />
 
-    <ImageButton
-        android:id="@+id/imageButton32"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="36dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toEndOf="@+id/imageButton30"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
-        app:srcCompat="@drawable/lines__1_" />
+        <ImageButton
+            android:id="@+id/imageButton31"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="20dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/column__1_" />
+
+        <ImageButton
+            android:id="@+id/imageButton32"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/lines__1_" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
