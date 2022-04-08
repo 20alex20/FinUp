@@ -125,7 +125,9 @@ public class AddExpenses extends AppCompatActivity {
                 PyObject obj = pyobj.callAttr("add_deposit", id_categories[i1], id_bank_accounts[i2], Et2.getText().toString(), Et3.getText().toString(), Et1.getText().toString());
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
-                goBack(view);
+                if (s.equals("Данные изменены")) {
+                    goBack(view);
+                }
             }
         });
     }
