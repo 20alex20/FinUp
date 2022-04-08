@@ -297,7 +297,7 @@
         android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -345,20 +345,20 @@
             android:layout_marginTop="5dp"
             android:background="#00FFFFFF"
             android:onClick="close"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/exit" />
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/yesyes" />
 
         <ImageButton
             android:id="@+id/imageButton28"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginStart="136dp"
-            android:layout_marginBottom="36dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginBottom="56dp"
             android:background="#00FFFFFF"
             android:onClick="close"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/exit" />
+            app:srcCompat="@drawable/button_zakryt" />
 
     </FrameLayout>
 
