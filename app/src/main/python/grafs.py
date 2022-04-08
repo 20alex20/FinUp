@@ -69,7 +69,7 @@ def graph(type: bool, mode: str, one: str, two: str):  # year_start, month_start
         cs, labels = f2(type, time_mode, args)
         for category, sums in cs.items():
             ax.plot(np.arange(len(sums)), sums, label=category)
-            ax.set_xticks(np.arange(len(sums)), labels=labels)
+            plt.xticks(np.arange(len(sums)), labels, rotation='horizontal')
 
         ax.set_xlabel('Дата')
         ax.set_ylabel('Рубли')
@@ -91,7 +91,7 @@ def graph(type: bool, mode: str, one: str, two: str):  # year_start, month_start
         rects2 = ax.bar(x, sums, width)
         ax.set_xlabel('Кактегории')
         ax.set_ylabel('Рубли')
-        ax.set_xticks(x, labels)
+        plt.xticks(x, labels, rotation='horizontal')
         ax.set_title('Cуммы по категориям')
         # ax.bar_label(rects2, padding=3)
     elif mode == 'bar2':
@@ -101,14 +101,15 @@ def graph(type: bool, mode: str, one: str, two: str):  # year_start, month_start
         last = None
         for category, sums in cs.items():
             p = ax.bar(ind, sums, width, bottom=last, label=category)
-            ax.bar_label(p, label_type='center')
+            # ax.bar_label(p, label_type='center')
             last = sums
 
         ax.axhline(0, color='grey', linewidth=0.8)
         ax.set_ylabel('Рубли')
         ax.set_xlabel('Дата')
         ax.set_title('Расходы за выбранный период')
-        ax.set_xticks(ind, labels=labels)
+        # ax.set_xticks(ind, labels=labels)
+        plt.xticks(ind, labels, rotation='horizontal')
         ax.legend()
 
     bi = BytesIO()
