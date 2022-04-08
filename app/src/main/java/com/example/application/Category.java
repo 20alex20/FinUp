@@ -10,17 +10,34 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.app.ListActivity;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Category extends AppCompatActivity {
 
     FrameLayout frame;
     EditText Et1;
     ImageButton Btn;
+    ListView listd;
 
+    private String[] name_categories;
+    private int[] id_categories;
+
+    final String[] catNamesArray = new String[]{"Рыжик", "Барсик", "Мурзик",
+            "Мурка", "Васька", "Томасина", "Бобик", "Кристина", "Пушок",
+            "Дымка", "Кузя", "Китти", "Барбос", "Масяня", "Симба"};
+
+    private ArrayAdapter<String> mAdapter;
+    private ArrayList<String> catNamesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,24 +47,61 @@ public class Category extends AppCompatActivity {
         frame = (FrameLayout)findViewById(R.id.frame1);
         Et1 = (EditText)findViewById(R.id.cat_name);
         Btn = (ImageButton)findViewById(R.id.add_cat);
+        listd = (ListView) findViewById(R.id.list);
 
         frame.setVisibility(ImageView.INVISIBLE);
 
         if(!Python.isStarted())
             Python.start(new AndroidPlatform(this));
-
         Python py = Python.getInstance();
         final PyObject pyobj = py.getModule("main");
+
+        draw(pyobj);
+        // getListView().setOnItemLongClickListener(AdapterView.OnItemLongClickListener);
 
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("add_category", Et1.getText().toString());
+                PyObject obj = pyobj.callAttr("add_category", Et1.getText().toString(), "");
                 frame.setVisibility(ImageView.INVISIBLE);
-                Toast.makeText(getApplicationContext(),"SAVED",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Данные изменены",Toast.LENGTH_LONG).show();
+
+                draw(pyobj);
             }
         });
     }
+
+    public void draw(PyObject pyobj) {
+        int cut = 2;
+        PyObject list = pyobj.callAttr("get_categories");
+        PyObject obj = pyobj.callAttr("to_line_list", list, cut);
+        String[] arr = obj.toJava(String[].class);
+        id_categories = new int[arr.length / cut];
+        name_categories = new String[arr.length / cut];
+        for (int i = 0; i < arr.length; i += cut) {
+            id_categories[i / cut] = Integer.parseInt(arr[i]);
+            name_categories[i / cut] = arr[i + 1];
+            // Toast.makeText(getApplicationContext(),name_categories[i / cut],Toast.LENGTH_LONG).show();
+        }
+
+        catNamesList = new ArrayList<>(Arrays.asList(name_categories));
+        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, catNamesList);
+        listd.setAdapter(mAdapter);
+    }
+
+
+//    @Override
+//    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//        String selectedItem = parent.getItemAtPosition(position).toString();
+//
+//        mAdapter.remove(selectedItem);
+//        mAdapter.notifyDataSetChanged();
+//
+//        Toast.makeText(getApplicationContext(),
+//                selectedItem + " удалён.",
+//                Toast.LENGTH_SHORT).show();
+//        return true;
+//    }
 
     public void open(View view) {
         frame.setVisibility(ImageView.VISIBLE);

@@ -196,11 +196,11 @@ def delete_my_account():
     return "Аккаунт удалён"
 
 
-def add_category(name):
+def add_category(name, description=""):
     ans = get_data(format(is_there_category, name, get_id_user()))
     if ans:
         return "Категория с таким названием уже существует"
-    do_query(format(add_category_query, name, get_id_user(), ""))
+    do_query(format(add_category_query, name, get_id_user(), description))
     return "Данные изменены"
 
 # def get_categories():
@@ -273,11 +273,11 @@ def delete_purchase(id_purchase):
     return "Данные изменены"
 
 
-def add_bank_account(name, current_sum):
+def add_bank_account(name, current_sum, description=""):
     ans = get_data(format(is_there_bank_account, name, get_id_user()))
     if ans:
         return "Счет с таким названием уже существует"
-    do_query(format(add_bank_account_query, name, get_id_user(), current_sum, ""))
+    do_query(format(add_bank_account_query, name, get_id_user(), current_sum, description))
     return "Данные изменены"
 
 def get_bank_accounts():

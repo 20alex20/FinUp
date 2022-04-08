@@ -13,30 +13,51 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/back" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/app_name"
+        android:onClick="OnBack"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icons8__50__1__1"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton22"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#00FFFFFF"
+        android:onClick="open"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/biglus"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+    </ListView>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <ImageButton
-                android:id="@+id/imageButton8"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:background="#00FFFFFF"
-                android:contentDescription="TODO"
-                android:onClick="OnBack"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/icons8__50__1__1"
-                tools:ignore="SpeakableTextPresentCheck" />
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/frameLayout5"
@@ -209,8 +230,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="25dp"
-                    app:srcCompat="@drawable/kimano"
-                    android:contentDescription="TODO" />
+                    android:contentDescription="TODO"
+                    app:srcCompat="@drawable/kimano" />
 
                 <ImageButton
                     android:id="@+id/imageButton18"
@@ -339,18 +360,6 @@
 
             </FrameLayout>
 
-            <ImageButton
-                android:id="@+id/imageButton22"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="30dp"
-                android:background="#00FFFFFF"
-                android:onClick="open"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/biglus"
-                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-
         </LinearLayout>
     </ScrollView>
 
@@ -358,7 +367,7 @@
         android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
