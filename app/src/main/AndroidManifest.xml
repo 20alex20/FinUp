@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application">
         <activity
+            android:name=".AddIncomes"
+            android:exported="false" />
+        <activity
             android:name=".AddCategory"
             android:exported="false" />
         <activity

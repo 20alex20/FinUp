@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 PyObject obj = pyobj.callAttr("login", Et1.getText().toString(), Et2.getText().toString());
                 String s = obj.toString();
-                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
                 if (s.equals("Вход разрешен")) {
                     btnMain(view);
                 }

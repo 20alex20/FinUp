@@ -19,7 +19,7 @@ import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 
-public class AddExpenses extends AppCompatActivity {
+public class AddIncomes extends AppCompatActivity {
 
     CalendarView calendar;
     EditText Et1, Et2, Et3;
@@ -34,7 +34,7 @@ public class AddExpenses extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_expenses);
+        setContentView(R.layout.activity_add_incomes);
 
         Et1 = (EditText)findViewById(R.id.editTextBillComm);
         Et2 = (EditText)findViewById(R.id.editSumm);
@@ -144,5 +144,4 @@ public class AddExpenses extends AppCompatActivity {
     public void close(View view) {
         frame.setVisibility(ImageView.INVISIBLE);
     }
-
 }

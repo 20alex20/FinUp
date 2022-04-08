@@ -35,7 +35,7 @@ def get_username_email():
 def write_all(first, second, third):
     first = str(first)
     with open(session_file, "w+") as f:
-        f.write(first + '.' + second + '.' + third)
+        f.write(first + '.'+ second + '.' + third)
 
 
 register_query = 'INSERT INTO users(username_email, password_hash, full_name) ' \
@@ -140,8 +140,15 @@ def do_query(query):  # для добавления/изменения данн�
         raise Exception("В доступе отказано")
     connection.commit()
     connection.close()
-    a = (1, 2)
     return "OK"
+
+def to_line_list(arr, cut=None):
+    ans = []
+    for i in arr:
+        if cut is not None:
+            i = i[:cut]
+        ans.extend(map(str, i))
+    return ans
 
 
 def login(username_email, password):
@@ -153,6 +160,8 @@ def login(username_email, password):
         return "Вход разрешен"
     return "В доступе отказано"
 
+
+default = ["Автомобиль", "Отдых и развлечения", "Продукты", "Кафе и растораны", "Одежда", "Здоровье и фитнес", "Подарки", "Поездки"]
 def register(username_email, password, full_name):
     # shutil.copy(dirname(__file__) + "/db.sqlite3", environ["HOME"] + "/")
     # return 'ok'
@@ -160,8 +169,12 @@ def register(username_email, password, full_name):
     if ans:
         return "Аккаунт на эту почту уже зарегистрирован"
     do_query(format(register_query, username_email, generate_password_hash(password), full_name))
-    return login(username_email, password)
-
+    message = login(username_email, password)
+    if message == "Вход разрешен":
+        for i in default:
+            add_category(i, "")
+        add_bank_account("Наличные", 0, "")
+    return message
 
 
 def edit_about_me(username_email, full_name):
@@ -173,25 +186,29 @@ def edit_about_me(username_email, full_name):
     return "Данные изменены"
 
 def logout():
-    with open("id_user.txt") as f:
+    with open(session_file, 'r') as f:
         f.write("")
-    raise Exception("Выход произведен успешно")
+    return "Выход произведен успешно"
 
 def delete_my_account():
     do_query(format(delete_my_account_query, get_id_user()))
-    try:
-        logout()
-    except Exception as e:
-        raise Exception("Аккаунт удалён")
+    logout()
+    return "Аккаунт удалён"
 
 
-def add_category(name, description):
+def add_category(name):
     ans = get_data(format(is_there_category, name, get_id_user()))
     if ans:
         return "Категория с таким названием уже существует"
-    do_query(format(add_category_query, name, get_id_user(), description))
+    do_query(format(add_category_query, name, get_id_user(), ""))
     return "Данные изменены"
 
+# def get_categories():
+#     ans = []
+#     for a, b, c in get_data(format(get_categories_query, get_id_user())):
+#         ans.append(str(a))
+#         ans.append(b)
+#     return ans
 def get_categories():
     return get_data(format(get_categories_query, get_id_user()))
 
@@ -204,7 +221,7 @@ def edit_category(id_category, name, description):
 
 def delete_category(id_category):
     do_query(format(delete_category_query, id_category))
-    raise Exception("Категория удалена")
+    return "Категория удалена"
 
 
 def add_deposit_category(name, description):
@@ -226,7 +243,7 @@ def edit_deposit_category(id_deposit_category, name, description):
 
 def delete_deposit_category(id_deposit_category):
     do_query(format(delete_deposit_category_query, id_deposit_category))
-    raise Exception("Категория удалена")
+    return "Категория удалена"
 
 
 def add_purchase(id_category, id_bank_account, sum, date, comment):
@@ -256,34 +273,34 @@ def delete_purchase(id_purchase):
     return "Данные изменены"
 
 
-def add_bank_account(name, current_sum, description):
-    ans = get_data(format(is_there_category, name, get_id_user()))
+def add_bank_account(name, current_sum):
+    ans = get_data(format(is_there_bank_account, name, get_id_user()))
     if ans:
-        return "Категория с таким названием уже существует"
-    do_query(format(add_category_query, name, get_id_user(), current_sum, description))
+        return "Счет с таким названием уже существует"
+    do_query(format(add_bank_account_query, name, get_id_user(), current_sum, ""))
     return "Данные изменены"
 
 def get_bank_accounts():
-    return get_data(format(get_categories_query, get_id_user()))
+    return get_data(format(get_bank_accounts_query, get_id_user()))
 
 def edit_bank_account(id_category, name, current_sum, description):
-    ans = get_data(format(is_there_category, name, get_id_user()))
+    ans = get_data(format(is_there_bank_account, name, get_id_user()))
     if ans and ans[0][0] != id_category:
-        return "Категория с таким названием уже существует"
-    do_query(format(edit_category_query, name, current_sum, description, id_category))
+        return "Счет с таким названием уже существует"
+    do_query(format(edit_bank_account_query, name, current_sum, description, id_category))
     return "Данные изменены"
 
 def delete_bank_account(id_category):
-    do_query(format(delete_category_query, id_category))
-    raise Exception("Категория удалена")
+    do_query(format(delete_bank_account_query, id_category))
+    return "Категория удалена"
 
 
 def add_deposit(id_deposit_category, id_bank_account, sum, date, comment):
+    sum = int(sum)
     ans = get_data(format(get_current_sum_query, id_bank_account))[0][0]
     if ans < sum:
         return "Средств недостаточно"
-    do_query(format(add_deposit_query, dt.now().strftime("%Y.%m.%d %H:%M:%S"),
-                         id_deposit_category, id_bank_account, sum, date, comment))
+    do_query(format(add_deposit_query, dt.now().strftime("%Y.%m.%d %H:%M:%S"), id_deposit_category, id_bank_account, sum, date, comment))
     do_query(format(edit_sum_query, id_bank_account, ans - sum))
     return "Данные изменены"
 

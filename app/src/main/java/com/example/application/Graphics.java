@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.EditText;
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import android.graphics.BitmapFactory;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -21,6 +23,8 @@ public class Graphics extends AppCompatActivity {
     EditText Et1, Et2;
     ImageButton Btn1, Btn2, Btn3, Btn4;
     ImageView iv;
+
+    CalendarView calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
