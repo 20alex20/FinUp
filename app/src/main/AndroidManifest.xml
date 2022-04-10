@@ -13,9 +13,6 @@
             android:name=".AddIncomes"
             android:exported="false" />
         <activity
-            android:name=".AddCategory"
-            android:exported="false" />
-        <activity
             android:name=".Category"
             android:exported="false" />
         <activity

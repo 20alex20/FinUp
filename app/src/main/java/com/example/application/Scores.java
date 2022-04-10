@@ -28,7 +28,7 @@ public class Scores extends AppCompatActivity {
 
         frame = (FrameLayout)findViewById(R.id.frame1);
         Et1 = (EditText)findViewById(R.id.count_name);
-        Btn = (ImageButton)findViewById(R.id.add_count);
+        Btn = (ImageButton)findViewById(R.id.add_cat);
 
         frame.setVisibility(ImageView.INVISIBLE);
 

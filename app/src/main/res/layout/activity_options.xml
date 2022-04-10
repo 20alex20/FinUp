@@ -274,7 +274,7 @@
             </FrameLayout>
 
             <ImageButton
-                android:id="@+id/imageButton20"
+                android:id="@+id/export_bt"
                 android:layout_width="wrap_content"
                 android:layout_height="130dp"
                 android:layout_marginTop="16dp"

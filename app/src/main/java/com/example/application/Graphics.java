@@ -24,7 +24,8 @@ public class Graphics extends AppCompatActivity {
     ImageButton Btn1, Btn2, Btn3, Btn4;
     ImageView iv;
 
-    CalendarView calendar;
+    CalendarView calendar, calendar2;
+    FrameLayout frame, frame2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +39,47 @@ public class Graphics extends AppCompatActivity {
         Btn3 = (ImageButton)findViewById(R.id.imageButton31);
         Btn4 = (ImageButton)findViewById(R.id.imageButton27);
         iv = (ImageView)findViewById(R.id.imageView22);
+        calendar = (CalendarView)findViewById(R.id.calendarView);
+        calendar2 = (CalendarView)findViewById(R.id.calendarView2);
+        frame = (FrameLayout)findViewById(R.id.frame1);
+        frame2 = (FrameLayout)findViewById(R.id.frame2);
+
 
         iv.setVisibility(View.INVISIBLE);
+        frame.setVisibility(ImageView.INVISIBLE);
+        frame2.setVisibility(ImageView.INVISIBLE);
 
         if(!Python.isStarted())
             Python.start(new AndroidPlatform(this));
 
         Python py = Python.getInstance();
         final PyObject pyobj = py.getModule("grafs");
+
+
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                int mYear = year;
+                int mMonth = month + 1;
+                int mDay = dayOfMonth;
+                String selectedDate = new StringBuilder().append(mDay)
+                        .append(".").append(mMonth).append(".").append(mYear).toString();
+                Et1.setText(selectedDate);
+            }
+        });
+
+        calendar2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                int mYear = year;
+                int mMonth = month + 1;
+                int mDay = dayOfMonth;
+                String selectedDate = new StringBuilder().append(mDay)
+                        .append(".").append(mMonth).append(".").append(mYear).toString();
+                Et2.setText(selectedDate);
+            }
+        });
+
 
         Btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,5 +126,21 @@ public class Graphics extends AppCompatActivity {
     public void goBack(View view) {
         Intent intent = new Intent(this, OperationsActivity.class);
         startActivity(intent);
+    }
+
+    public void open(View view) {
+        frame.setVisibility(ImageView.VISIBLE);
+    }
+
+    public void close(View view) {
+        frame.setVisibility(ImageView.INVISIBLE);
+    }
+
+    public void open2(View view) {
+        frame2.setVisibility(ImageView.VISIBLE);
+    }
+
+    public void close2(View view) {
+        frame2.setVisibility(ImageView.INVISIBLE);
     }
 }

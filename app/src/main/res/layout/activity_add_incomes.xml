@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="5dp"
-        android:text="Категория"
+        android:text="Категория дохода"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner1"
         app:layout_constraintStart_toStartOf="parent" />
@@ -51,6 +51,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,10 +60,12 @@
 
     <Spinner
         android:id="@+id/spinner2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="195dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -92,8 +96,10 @@
     <EditText
         android:id="@+id/editTextBillComm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="15dp"
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
@@ -109,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="5dp"
-        android:text="Потраченная сумма"
+        android:text="Добавленная сумма"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/editSumm"
         app:layout_constraintStart_toStartOf="parent" />
@@ -117,8 +123,10 @@
     <EditText
         android:id="@+id/editSumm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="390dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="370dp"
+        android:layout_marginEnd="15dp"
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
@@ -142,8 +150,9 @@
     <EditText
         android:id="@+id/editTextBillName3"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="460dp"
         android:ems="10"
         android:inputType="date"
         android:minHeight="48dp"
@@ -168,19 +177,19 @@
         android:id="@+id/button"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="36dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="36dp"
         android:background="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextBillName3"
-        app:srcCompat="@drawable/plusss" />
+        app:srcCompat="@drawable/icons8__144" />
 
     <FrameLayout
         android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

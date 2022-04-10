@@ -24,17 +24,13 @@ import java.util.Arrays;
 
 public class Category extends AppCompatActivity {
 
-    FrameLayout frame;
+    FrameLayout frame1, frame2;
     EditText Et1;
     ImageButton Btn;
     ListView listd;
 
     private String[] name_categories;
     private int[] id_categories;
-
-    final String[] catNamesArray = new String[]{"Рыжик", "Барсик", "Мурзик",
-            "Мурка", "Васька", "Томасина", "Бобик", "Кристина", "Пушок",
-            "Дымка", "Кузя", "Китти", "Барбос", "Масяня", "Симба"};
 
     private ArrayAdapter<String> mAdapter;
     private ArrayList<String> catNamesList;
@@ -44,12 +40,14 @@ public class Category extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        frame = (FrameLayout)findViewById(R.id.frame1);
+        frame1 = (FrameLayout)findViewById(R.id.frame1);
+        frame2 = (FrameLayout)findViewById(R.id.frame2);
         Et1 = (EditText)findViewById(R.id.cat_name);
         Btn = (ImageButton)findViewById(R.id.add_cat);
         listd = (ListView) findViewById(R.id.list);
 
-        frame.setVisibility(ImageView.INVISIBLE);
+        frame1.setVisibility(ImageView.INVISIBLE);
+        frame2.setVisibility(ImageView.INVISIBLE);
 
         if(!Python.isStarted())
             Python.start(new AndroidPlatform(this));
@@ -63,7 +61,7 @@ public class Category extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 PyObject obj = pyobj.callAttr("add_category", Et1.getText().toString(), "");
-                frame.setVisibility(ImageView.INVISIBLE);
+                frame1.setVisibility(ImageView.INVISIBLE);
                 Toast.makeText(getApplicationContext(),"Данные изменены",Toast.LENGTH_LONG).show();
 
                 draw(pyobj);
@@ -81,12 +79,13 @@ public class Category extends AppCompatActivity {
         for (int i = 0; i < arr.length; i += cut) {
             id_categories[i / cut] = Integer.parseInt(arr[i]);
             name_categories[i / cut] = arr[i + 1];
-            // Toast.makeText(getApplicationContext(),name_categories[i / cut],Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),name_categories[i / cut],Toast.LENGTH_LONG).show();
         }
 
         catNamesList = new ArrayList<>(Arrays.asList(name_categories));
         mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, catNamesList);
         listd.setAdapter(mAdapter);
+        //Toast.makeText(getApplicationContext(),catNamesList + "",Toast.LENGTH_LONG).show();
     }
 
 
@@ -104,11 +103,19 @@ public class Category extends AppCompatActivity {
 //    }
 
     public void open(View view) {
-        frame.setVisibility(ImageView.VISIBLE);
+        frame1.setVisibility(ImageView.VISIBLE);
     }
 
     public void close(View view) {
-        frame.setVisibility(ImageView.INVISIBLE);
+        frame1.setVisibility(ImageView.INVISIBLE);
+    }
+
+    public void open2(View view) {
+        frame2.setVisibility(ImageView.VISIBLE);
+    }
+
+    public void close2(View view) {
+        frame2.setVisibility(ImageView.INVISIBLE);
     }
 
     public void OnBack(View view) {

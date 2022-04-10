@@ -25,7 +25,7 @@ public class AddExpenses extends AppCompatActivity {
     EditText Et1, Et2, Et3;
     ImageView cls;
     ImageButton Btn;
-    FrameLayout frame;
+    FrameLayout frame1;
 
     private String[] name_categories, name_bank_accounts;
     private int[] id_categories, id_bank_accounts;
@@ -40,11 +40,11 @@ public class AddExpenses extends AppCompatActivity {
         Et2 = (EditText)findViewById(R.id.editSumm);
         Et3 = (EditText)findViewById(R.id.editTextBillName3);
         cls = (ImageView)findViewById(R.id.imageView16);
-        frame = (FrameLayout)findViewById(R.id.frame1);
+        frame1 = (FrameLayout)findViewById(R.id.frame1);
         Btn = (ImageButton)findViewById(R.id.button);
         calendar = (CalendarView)findViewById(R.id.calendarView);
 
-        frame.setVisibility(ImageView.INVISIBLE);
+        frame1.setVisibility(ImageView.INVISIBLE);
 
         Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
@@ -122,7 +122,7 @@ public class AddExpenses extends AppCompatActivity {
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("add_deposit", id_categories[i1], id_bank_accounts[i2], Et2.getText().toString(), Et3.getText().toString(), Et1.getText().toString());
+                PyObject obj = pyobj.callAttr("add_purchase", id_categories[i1], id_bank_accounts[i2], Et2.getText().toString(), Et3.getText().toString(), Et1.getText().toString());
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
                 if (s.equals("Данные изменены")) {
@@ -138,11 +138,11 @@ public class AddExpenses extends AppCompatActivity {
     }
 
     public void open(View view) {
-        frame.setVisibility(ImageView.VISIBLE);
+        frame1.setVisibility(ImageView.VISIBLE);
     }
 
     public void close(View view) {
-        frame.setVisibility(ImageView.INVISIBLE);
+        frame1.setVisibility(ImageView.INVISIBLE);
     }
 
 }

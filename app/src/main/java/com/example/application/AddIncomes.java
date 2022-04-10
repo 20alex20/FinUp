@@ -78,7 +78,7 @@ public class AddIncomes extends AppCompatActivity {
 
         int cut = 2;
 
-        PyObject list = pyobj.callAttr("get_categories");
+        PyObject list = pyobj.callAttr("get_deposit_categories");
         PyObject obj = pyobj.callAttr("to_line_list", list, cut);
         String[] arr = obj.toJava(String[].class);
         id_categories = new int[arr.length / cut];

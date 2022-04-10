@@ -162,6 +162,7 @@ def login(username_email, password):
 
 
 default = ["Автомобиль", "Отдых и развлечения", "Продукты", "Кафе и растораны", "Одежда", "Здоровье и фитнес", "Подарки", "Поездки"]
+default1 = ["Зарплата", "Аренда", "Родственники"]
 def register(username_email, password, full_name):
     # shutil.copy(dirname(__file__) + "/db.sqlite3", environ["HOME"] + "/")
     # return 'ok'
@@ -173,6 +174,8 @@ def register(username_email, password, full_name):
     if message == "Вход разрешен":
         for i in default:
             add_category(i, "")
+        for j in default1:
+            add_deposit_category(j, "")
         add_bank_account("Наличные", 0, "")
     return message
 
@@ -224,7 +227,7 @@ def delete_category(id_category):
     return "Категория удалена"
 
 
-def add_deposit_category(name, description):
+def add_deposit_category(name, description=""):
     ans = get_data(format(is_there_deposit_category, name, get_id_user()))
     if ans:
         return "Категория с таким названием уже существует"

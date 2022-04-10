@@ -337,16 +337,17 @@
             android:inputType="number" />
 
         <ImageButton
-            android:id="@+id/add_count"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:id="@+id/add_cat"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="115dp"
             android:layout_marginTop="5dp"
             android:background="#00FFFFFF"
             android:onClick="close"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/yesyes" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/yesyes"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/imageButton28"
