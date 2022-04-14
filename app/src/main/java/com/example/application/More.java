@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
@@ -18,6 +21,7 @@ import java.util.Arrays;
 public class More extends AppCompatActivity {
 
     TextView name, email;
+    ImageButton Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +30,22 @@ public class More extends AppCompatActivity {
 
         name = (TextView)findViewById(R.id.name);
         email = (TextView)findViewById(R.id.email);
+        Btn = (ImageButton) findViewById(R.id.imageButton9);
 
         if(!Python.isStarted())
             Python.start(new AndroidPlatform(this));
         Python py = Python.getInstance();
         final PyObject pyobj = py.getModule("main");
+
+        Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PyObject obj = pyobj.callAttr("logout");
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+                Login(null);
+            }
+        });
 
         draw(pyobj);
     }
