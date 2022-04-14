@@ -31,7 +31,7 @@
     <ImageView
         android:id="@+id/imageView15"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
+        android:layout_height="270dp"
         android:layout_marginTop="200dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,10 +41,34 @@
         app:srcCompat="@drawable/rectangle_60" />
 
     <ImageButton
-        android:id="@+id/imageButton24"
+        android:id="@+id/imageButton23"
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:layout_marginTop="200dp"
+        android:background="#00FFFFFF"
+        android:onClick="Graphics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageButton
+        android:id="@+id/imageButton24"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_marginTop="285dp"
+        android:background="#00FFFFFF"
+        android:onClick="Graphics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageButton
+        android:id="@+id/imageButton25"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:layout_marginTop="367dp"
         android:background="#00FFFFFF"
         android:onClick="Graphics"
         app:layout_constraintEnd_toEndOf="parent"

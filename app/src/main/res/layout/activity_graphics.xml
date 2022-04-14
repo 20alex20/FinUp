@@ -133,7 +133,7 @@
             android:layout_marginEnd="20dp"
             android:background="#00FFFFFF"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/sctack__1_"
+            app:srcCompat="@drawable/stacks"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
@@ -143,7 +143,7 @@
             android:layout_marginEnd="20dp"
             android:background="#00FFFFFF"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/pie__1_" />
+            app:srcCompat="@drawable/pie" />
 
         <ImageButton
             android:id="@+id/imageButton31"
@@ -152,7 +152,7 @@
             android:layout_marginEnd="20dp"
             android:background="#00FFFFFF"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/column__1_" />
+            app:srcCompat="@drawable/colums" />
 
         <ImageButton
             android:id="@+id/imageButton32"
@@ -160,7 +160,7 @@
             android:layout_height="72dp"
             android:background="#00FFFFFF"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/lines__1_" />
+            app:srcCompat="@drawable/lines" />
     </LinearLayout>
 
     <FrameLayout
