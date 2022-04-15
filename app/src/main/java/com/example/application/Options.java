@@ -28,8 +28,8 @@ public class Options extends AppCompatActivity {
         frame1 = (FrameLayout) findViewById(R.id.frame1);
 
         frame1.setVisibility(ImageView.INVISIBLE);
-        Btn1 = (ImageButton)findViewById(R.id.export_bt);
-        Btn2 = (ImageButton)findViewById(R.id.export_bt);
+        //Btn1 = (ImageButton)findViewById(R.id.export_bt);
+       // Btn2 = (ImageButton)findViewById(R.id.export_bt);
 
         //if(!Python.isStarted())
         //    Python.start(new AndroidPlatform(this));
@@ -37,7 +37,7 @@ public class Options extends AppCompatActivity {
         //Python py = Python.getInstance();
         //final PyObject pyobj = py.getModule("csv_xlsx");
 
-        Btn1.setOnClickListener(new View.OnClickListener() {
+        /*Btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 PyObject obj = pyobj.callAttr("export_csv", Et1.getText().toString(), Et2.getText().toString());
@@ -61,7 +61,7 @@ public class Options extends AppCompatActivity {
                 }
                 // tv.setText(obj.toString());
             }
-        });
+        });*/
 
     }
 

@@ -123,7 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="83dp"
                     android:layout_marginTop="82dp"
-                    android:background="#9A9F9F9F"
+                    android:background="#009F9F9F"
                     android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/empty" />
 
