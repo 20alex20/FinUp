@@ -140,7 +140,7 @@ def do_query(query):  # для добавления/изменения данн�
         raise Exception("В доступе отказано")
     connection.commit()
     connection.close()
-    return "OK"
+    return "ОК"
 
 def to_line_list(arr, cut=None):
     ans = []
@@ -165,8 +165,8 @@ def login(username_email, password):
         id_user = ans[0][0]
         full_name = ans[0][2]
         write_all(id_user, full_name, username_email)
-        return "Вход разрешен"
-    return "В доступе отказано"
+        return "Здравствуйте, " + get_full_name()
+    return "Неверный логин или пароль"
 
 
 default = ["Автомобиль", "Отдых и развлечения", "Продукты", "Кафе и растораны", "Одежда", "Здоровье и фитнес", "Подарки", "Поездки"]
@@ -179,7 +179,7 @@ def register(username_email, password, full_name):
         return "Аккаунт на эту почту уже зарегистрирован"
     do_query(format(register_query, username_email, generate_password_hash(password), full_name))
     message = login(username_email, password)
-    if message == "Вход разрешен":
+    if message == "Здравствуйте, " + get_full_name():
         for i in default:
             add_category(i, "")
         for j in default1:
@@ -199,12 +199,12 @@ def edit_about_me(username_email, full_name):
 def logout():
     with open(session_file, 'w') as f:
         f.write("")
-    return "Выход произведен успешно"
+    return "До встречи, " + get_full_name()
 
 def delete_my_account():
     do_query(format(delete_my_account_query, get_id_user()))
     logout()
-    return "Аккаунт удалён"
+    return "Аккаунт удалён успешно"
 
 
 def add_category(name, description=""):

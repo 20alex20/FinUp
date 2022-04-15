@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/finprevio"
+        android:icon="@drawable/finupp"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/finprevio"
+        android:roundIcon="@drawable/finupp"
         android:supportsRtl="true"
         android:theme="@style/Theme.Application">
         <activity
