@@ -311,7 +311,7 @@ def add_deposit(id_deposit_category, id_bank_account, sum, date, comment):
     ans = get_data(format(get_current_sum_query, id_bank_account))[0][0]
     do_query(format(add_deposit_query, dt.now().strftime("%Y.%m.%d %H:%M:%S"), id_deposit_category, id_bank_account, sum, date, comment))
     do_query(format(edit_sum_query, id_bank_account, ans + sum))
-    return "Данные изменены"
+    return str(get_bank_accounts())
 
 def get_deposits():
     return get_data(format(get_deposits_query, get_id_user()))

@@ -117,11 +117,11 @@
         android:layout_marginBottom="5dp"
         android:text="Потраченная сумма"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editSumm"
+        app:layout_constraintBottom_toTopOf="@+id/editSumm1"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editSumm"
+        android:id="@+id/editSumm1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="15dp"
