@@ -340,3 +340,20 @@ def get_sum():
         sum += get_data(format(get_current_sum_query, i[0]))[0][0]
     return str(sum) + '₽'
 
+def get_sum_deposits():
+    sum = 0
+    now = dt.now().strftime("%m.%Y").split('.')
+    ds = get_data(format(get_deposits_query2, get_id_user()))
+    for id, summa, date in ds:
+        if date.split('.', 1)[1] == now:
+            sum += int(summa)
+    return str(sum) + '₽'
+
+def get_sum_purchases():
+    sum = 0
+    now = dt.now().strftime("%m.%Y").split('.')
+    ds = get_data(format(get_purchases_query2, get_id_user()))
+    for id, summa, date in ds:
+        if date.split('.', 1)[1] == now:
+            sum += int(summa)
+    return str(sum) + '₽'

@@ -34,7 +34,7 @@ public class OperationsActivity extends AppCompatActivity {
     private ArrayList<String> catNamesList;
 
     FrameLayout frame;
-    TextView Text;
+    TextView Text, Text1, Text2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,8 @@ public class OperationsActivity extends AppCompatActivity {
         listd = (ListView) findViewById(R.id.list);
         frame = (FrameLayout)findViewById(R.id.frame1);
         Text = (TextView)findViewById(R.id.textView8);
+        Text1 = (TextView)findViewById(R.id.textView11);
+        Text2 = (TextView)findViewById(R.id.textView13);
 
         frame.setVisibility(ImageView.INVISIBLE);
 
@@ -57,6 +59,13 @@ public class OperationsActivity extends AppCompatActivity {
         String s = obj.toString();
         Text.setText(s);
 
+        PyObject obj1 = pyobj.callAttr("get_sum_deposits");
+        String s1 = obj1.toString();
+        Text1.setText(s1);
+
+        PyObject obj2 = pyobj.callAttr("get_sum_purchases");
+        String s2 = obj2.toString();
+        Text2.setText(s2);
         //draw(pyobj);
     }
 

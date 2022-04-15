@@ -101,7 +101,7 @@ public class Scores extends AppCompatActivity {
     }
 
     public void bank(View view) {
-        Toast.makeText(getApplicationContext(),"Автоматическая интеграция с мобильными приложениями банков дуоступна только в платной весрии",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Автоматическая интеграция с мобильными приложениями банков доступна только в платной весрии",Toast.LENGTH_LONG).show();
     }
 
 
