@@ -39,8 +39,7 @@ public class OperationsActivity extends AppCompatActivity {
 
 
     FrameLayout frame;
-    TextView Text, Text1, Text2;
-    TextView Text, t1, t2, t3;
+    TextView Text, Text1, Text2, t1, t2, t3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

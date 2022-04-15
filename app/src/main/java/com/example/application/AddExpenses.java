@@ -34,7 +34,7 @@ public class AddExpenses extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_expenses);
+        setContentView(R.layout.activity_add_incomes);
 
         Et1 = (EditText)findViewById(R.id.editTextBillComm);
         Et2 = (EditText)findViewById(R.id.editSumm);
@@ -122,6 +122,7 @@ public class AddExpenses extends AppCompatActivity {
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(), id_categories[i1]+ id_bank_accounts[i2]+Et2.getText().toString()+Et3.getText().toString()+Et1.getText().toString(),Toast.LENGTH_LONG).show();
                 PyObject obj = pyobj.callAttr("add_purchase", id_categories[i1], id_bank_accounts[i2], Et2.getText().toString(), Et3.getText().toString(), Et1.getText().toString());
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();

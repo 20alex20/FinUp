@@ -85,7 +85,7 @@ get_bank_accounts_query = 'SELECT id_bank_account, name, current_sum, descriptio
 is_there_bank_account = 'SELECT id_bank_account FROM bank_accounts WHERE name="{name}", id_user={id_user}'
 get_current_sum_query = 'SELECT current_sum FROM bank_accounts WHERE id_bank_account={id_bank_account}'
 edit_sum_query = 'UPDATE bank_accounts SET current_sum={current_sum} WHERE id_bank_account={id_bank_account}'
-edit_bank_account_query = "UPDATE bank_accounts SET name='{name}', description='{description}', current_sum={current_sum} WHERE id_bank_account={id_bank_account}"
+edit_bank_account_query = "UPDATE bank_accounts SET name='{name}', description='{description}' WHERE id_bank_account={id_bank_account}"
 delete_bank_account_query = 'DELETE FROM bank_accounts WHERE id_bank_account={id_bank_account}'
 
 add_deposit_query = 'INSERT INTO deposits(date_time_add, id_deposit_category, id_bank_account, sum,' \
@@ -171,7 +171,7 @@ def register(username_email, password, full_name):
         return "Аккаунт на эту почту уже зарегистрирован"
     do_query(format(register_query, username_email, generate_password_hash(password), full_name))
     message = login(username_email, password)
-    if message == "Здравствуйте, " + get_full_name():
+    if message == "Вход разрешен":
         for i in default:
             add_category(i, "")
         for j in default1:
@@ -191,7 +191,7 @@ def edit_about_me(username_email, full_name):
 def logout():
     with open(session_file, 'w') as f:
         f.write("")
-    return "До встречи, " + get_full_name()
+    return "До свидания"
 
 def delete_my_account():
     do_query(format(delete_my_account_query, get_id_user()))
@@ -248,12 +248,14 @@ def delete_deposit_category(id_deposit_category):
 
 
 def add_purchase(id_category, id_bank_account, sum, date, comment):
+    #return format(get_current_sum_query, id_bank_account)
     ans = get_data(format(get_current_sum_query, id_bank_account))[0][0]
-    if int(ans) < sum:
+    sum = int(sum)
+    if int(ans) < int(sum):
         return "Средств недостаточно"
     do_query(format(add_purchase_query, dt.now().strftime("%Y.%m.%d %H:%M:%S"),
                          id_category, id_bank_account, sum, date, comment))
-    do_query(format(edit_sum_query, id_bank_account, ans - sum))
+    do_query(format(edit_sum_query, ans - sum, id_bank_account))
     return "Данные изменены"
 
 def get_purchase():
@@ -283,11 +285,12 @@ def add_bank_account(name, current_sum, description=""):
 def get_bank_accounts():
     return get_data(format(get_bank_accounts_query, get_id_user()))
 
-def edit_bank_account(id_bank_account, name, current_sum, description):
+def edit_bank_account(id_bank_account, name, description=""):
     ans = search_category(name, get_bank_accounts())
     if ans and ans != id_bank_account:
         return "Счет с таким названием уже существует"
-    do_query(format(edit_bank_account_query, name, current_sum, description, id_bank_account))
+    #return format(edit_bank_account_query, name, description, id_bank_account)
+    do_query(format(edit_bank_account_query, name, description, id_bank_account))
     return "Данные изменены"
 
 def delete_bank_account(id_category):
@@ -299,8 +302,8 @@ def add_deposit(id_deposit_category, id_bank_account, sum, date, comment):
     sum = int(sum)
     ans = get_data(format(get_current_sum_query, id_bank_account))[0][0]
     do_query(format(add_deposit_query, dt.now().strftime("%Y.%m.%d %H:%M:%S"), id_deposit_category, id_bank_account, sum, date, comment))
-    do_query(format(edit_sum_query, id_bank_account, ans + sum))
-    #return str(get_bank_accounts())
+    do_query(format(edit_sum_query, ans + sum, id_bank_account))
+    #return format(edit_sum_query, id_bank_account, ans + sum)
     return "Данные изменены"
 
 def get_deposits():
@@ -329,24 +332,31 @@ def get_purchase_deposit(type, id):
 
 def get_sum():
     sum = 0
+
     for i in get_bank_accounts():
         sum += get_data(format(get_current_sum_query, i[0]))[0][0]
     return str(sum) + '₽'
 
 def get_sum_deposits():
     sum = 0
-    now = dt.now().strftime("%m.%Y").split('.')
-    ds = get_data(format(get_deposits_query2, get_id_user()))
-    for id, summa, date in ds:
-        if date.split('.', 1)[1] == now:
-            sum += int(summa)
+    now = [int(i) for i in dt.now().strftime("%m.%Y").split(".")]
+    for cat in get_deposit_categories():
+        ds = get_data(format(get_deposits_query2, cat[0]))
+        #return str(ds) + format(get_deposits_query2, cat[0])
+        #return format(get_deposits_query2, get_id_user())
+        for id, summa, date in ds:
+            dd = [int(i) for i in date.split(".")][1:]
+            if dd == now:
+                sum += int(summa)
     return str(sum) + '₽'
 
 def get_sum_purchases():
     sum = 0
-    now = dt.now().strftime("%m.%Y").split('.')
-    ds = get_data(format(get_purchases_query2, get_id_user()))
-    for id, summa, date in ds:
-        if date.split('.', 1)[1] == now:
-            sum += int(summa)
+    now = [int(i) for i in dt.now().strftime("%m.%Y").split(".")]
+    for cat in get_categories():
+        ds = get_data(format(get_purchases_query2, cat[0]))
+        for id, summa, date in ds:
+            dd = [int(i) for i in date.split(".")][1:]
+            if dd == now:
+                sum += int(summa)
     return str(sum) + '₽'

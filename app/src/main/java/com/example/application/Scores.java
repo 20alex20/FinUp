@@ -27,7 +27,7 @@ import java.util.Arrays;
 public class Scores extends AppCompatActivity {
 
     FrameLayout frame, frame2, frm;
-    EditText Et1;
+    EditText Et1, Et2;
     ImageButton Btn, Btn2;
     TextView Text;
     ListView listd;
@@ -50,6 +50,7 @@ public class Scores extends AppCompatActivity {
         frame2 = (FrameLayout)findViewById(R.id.frame2);
         frm = (FrameLayout)findViewById(R.id.frameLayout);
         Et1 = (EditText)findViewById(R.id.count_name);
+        Et2 = (EditText)findViewById(R.id.cat_name2);
         Btn = (ImageButton)findViewById(R.id.add_cat);
         Text = (TextView)findViewById(R.id.textView17);
         listd = (ListView) findViewById(R.id.list);
@@ -77,7 +78,8 @@ public class Scores extends AppCompatActivity {
             public void onClick(View view) {
                 PyObject obj = pyobj.callAttr("add_bank_account", Et1.getText().toString(), 0);
                 frame.setVisibility(ImageView.INVISIBLE);
-                Toast.makeText(getApplicationContext(),"Новая карта добавлена",Toast.LENGTH_LONG).show();
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
                 draw(pyobj);
                 close(view);
             }
@@ -109,9 +111,9 @@ public class Scores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                PyObject obj = pyobj.callAttr("edit_bank_account", id_bank_accounts[pz], name_bank_accounts[pz], "");
+                PyObject obj = pyobj.callAttr("edit_bank_account", id_bank_accounts[pz], Et2.getText().toString(), "");
                 String s = obj.toString();
-                Toast.makeText(getApplicationContext(), "perenaz",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
                 draw(pyobj);
                 close2(view);
             }

@@ -87,7 +87,7 @@ public class Category extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                PyObject obj = pyobj.callAttr("delete_deposit_category", id_categories[pz]);
+                PyObject obj = pyobj.callAttr("delete_category", id_categories[pz]);
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
                 draw(pyobj);
@@ -99,7 +99,7 @@ public class Category extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                PyObject obj = pyobj.callAttr("edit_deposit_category", id_categories[pz], name_categories[pz], "");
+                PyObject obj = pyobj.callAttr("edit_category", id_categories[pz], name_categories[pz], "");
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(), "perenaz",Toast.LENGTH_LONG).show();
                 draw(pyobj);
