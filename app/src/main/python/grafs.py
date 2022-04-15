@@ -8,7 +8,10 @@ from io import BytesIO
 
 
 def f(type: bool, time_mode: int, args):
-    categories = get_categories()
+    if type:
+        categories = get_categories()
+    else:
+        categories = get_deposit_categories()
     labels = []
     sums = []
     for id_category, name, description in categories:
@@ -43,7 +46,10 @@ def dn(time_mode, date_start):
 def f2(type: bool, time_mode: int, args):
     labels = []
     cs = {}
-    categories = get_categories()
+    if type:
+        categories = get_categories()
+    else:
+        categories = get_deposit_categories()
     for id_category, name, description in categories:
         cs[name] = []
 

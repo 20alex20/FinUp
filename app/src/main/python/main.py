@@ -140,7 +140,7 @@ def do_query(query):  # для добавления/изменения данн�
         raise Exception("В доступе отказано")
     connection.commit()
     connection.close()
-    return "OK"
+    return "ОК"
 
 def to_line_list(arr, cut=None):
     ans = []
@@ -165,8 +165,8 @@ def login(username_email, password):
         id_user = ans[0][0]
         full_name = ans[0][2]
         write_all(id_user, full_name, username_email)
-        return "Вход разрешен"
-    return "В доступе отказано"
+        return "Здравствуйте, " + get_full_name()
+    return "Неверный логин или пароль"
 
 
 default = ["Автомобиль", "Отдых и развлечения", "Продукты", "Кафе и растораны", "Одежда", "Здоровье и фитнес", "Подарки", "Поездки"]
@@ -179,7 +179,7 @@ def register(username_email, password, full_name):
         return "Аккаунт на эту почту уже зарегистрирован"
     do_query(format(register_query, username_email, generate_password_hash(password), full_name))
     message = login(username_email, password)
-    if message == "Вход разрешен":
+    if message == "Здравствуйте, " + get_full_name():
         for i in default:
             add_category(i, "")
         for j in default1:
@@ -199,33 +199,32 @@ def edit_about_me(username_email, full_name):
 def logout():
     with open(session_file, 'w') as f:
         f.write("")
-    return "Выход произведен успешно"
+    return "До встречи, " + get_full_name()
 
 def delete_my_account():
     do_query(format(delete_my_account_query, get_id_user()))
     logout()
-    return "Аккаунт удалён"
+    return "Аккаунт удалён успешно"
 
 
 def add_category(name, description=""):
-    ans = get_data(format(is_there_category, name, get_id_user()))
-    if ans:
-        return "Категория с таким названием уже существует"
+    if search_category(name, get_categories()):
+       return "Категория с таким названием уже существует"
     do_query(format(add_category_query, name, get_id_user(), description))
     return "Данные изменены"
 
-# def get_categories():
-#     ans = []
-#     for a, b, c in get_data(format(get_categories_query, get_id_user())):
-#         ans.append(str(a))
-#         ans.append(b)
-#     return ans
+def search_category(name, llist):
+    for category in llist:
+        if category[1] == name:
+            return category[0]
+    return False
+
 def get_categories():
     return get_data(format(get_categories_query, get_id_user()))
 
 def edit_category(id_category, name, description):
-    ans = get_data(format(is_there_category, name, get_id_user()))
-    if ans and ans[0][0] != id_category:
+    ans = search_category(name, get_categories())
+    if ans and ans != id_category:
         return "Категория с таким названием уже существует"
     do_query(format(edit_category_query, name, description, id_category))
     return "Данные изменены"
@@ -236,8 +235,7 @@ def delete_category(id_category):
 
 
 def add_deposit_category(name, description=""):
-    ans = get_data(format(is_there_deposit_category, name, get_id_user()))
-    if ans:
+    if search_category(name, get_deposit_categories()):
         return "Категория с таким названием уже существует"
     do_query(format(add_deposit_category_query, name, get_id_user(), description))
     return "Данные изменены"
@@ -246,8 +244,8 @@ def get_deposit_categories():
     return get_data(format(get_deposit_categories_query, get_id_user()))
 
 def edit_deposit_category(id_deposit_category, name, description):
-    ans = get_data(format(is_there_deposit_category, name, get_id_user()))
-    if ans and ans[0][0] != id_deposit_category:
+    ans = search_category(name, get_deposit_categories())
+    if ans and ans != id_deposit_category:
         return "Категория с таким названием уже существует"
     do_query(format(edit_deposit_category_query, name, description, id_deposit_category))
     return "Данные изменены"
@@ -285,20 +283,19 @@ def delete_purchase(id_purchase):
 
 
 def add_bank_account(name, current_sum, description=""):
-    ans = get_data(format(is_there_bank_account, name, get_id_user()))
-    if ans:
-        return "Счет с таким названием уже существует"
+    if search_category(name, get_bank_accounts()):
+        return "Категория с таким названием уже существует"
     do_query(format(add_bank_account_query, name, get_id_user(), current_sum, description))
     return "Данные изменены"
 
 def get_bank_accounts():
     return get_data(format(get_bank_accounts_query, get_id_user()))
 
-def edit_bank_account(id_category, name, current_sum, description):
-    ans = get_data(format(is_there_bank_account, name, get_id_user()))
-    if ans and ans[0][0] != id_category:
-        return "Счет с таким названием уже существует"
-    do_query(format(edit_bank_account_query, name, current_sum, description, id_category))
+def edit_bank_account(id_bank_account, name, current_sum, description):
+    ans = search_category(name, get_bank_accounts())
+    if ans and ans != id_bank_account:
+        return "Категория с таким названием уже существует"
+    do_query(format(edit_bank_account_query, name, current_sum, description, id_bank_account))
     return "Данные изменены"
 
 def delete_bank_account(id_category):
@@ -336,3 +333,10 @@ def get_purchase_deposit(type, id):
         return get_data(format(get_purchases_query2, id))
     else:
         return get_data(format(get_deposits_query2, id))
+
+def get_sum():
+    sum = 0
+    for i in get_bank_accounts():
+        sum += get_data(format(get_current_sum_query, i[0]))[0][0]
+    return str(sum) + '₽'
+

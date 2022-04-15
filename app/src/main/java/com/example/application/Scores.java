@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.app.ListActivity;
@@ -27,6 +28,7 @@ public class Scores extends AppCompatActivity {
     FrameLayout frame;
     EditText Et1;
     ImageButton Btn;
+    TextView Text;
     ListView listd;
 
     private String[] name_bank_accounts;
@@ -43,6 +45,7 @@ public class Scores extends AppCompatActivity {
         frame = (FrameLayout)findViewById(R.id.frame1);
         Et1 = (EditText)findViewById(R.id.count_name);
         Btn = (ImageButton)findViewById(R.id.add_cat);
+        Text = (TextView)findViewById(R.id.textView17);
         listd = (ListView) findViewById(R.id.list);
 
 
@@ -53,6 +56,9 @@ public class Scores extends AppCompatActivity {
 
         Python py = Python.getInstance();
         final PyObject pyobj = py.getModule("main");
+        PyObject obj = pyobj.callAttr("get_sum");
+        String s = obj.toString();
+        Text.setText(s);
 
         draw(pyobj);
 
@@ -95,7 +101,7 @@ public class Scores extends AppCompatActivity {
     }
 
     public void bank(View view) {
-        Toast.makeText(getApplicationContext(),"Автоматическая интеграция с мобильными приложениями банков доступна только в платной весрии",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Автоматическая интеграция с мобильными приложениями банков дуоступна только в платной весрии",Toast.LENGTH_LONG).show();
     }
 
 

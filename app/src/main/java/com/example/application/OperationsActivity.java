@@ -11,6 +11,11 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
 import android.widget.ListView;
 
 import com.chaquo.python.PyObject;
@@ -29,6 +34,7 @@ public class OperationsActivity extends AppCompatActivity {
     private ArrayList<String> catNamesList;
 
     FrameLayout frame;
+    TextView Text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +43,19 @@ public class OperationsActivity extends AppCompatActivity {
 
         listd = (ListView) findViewById(R.id.list);
         frame = (FrameLayout)findViewById(R.id.frame1);
+        Text = (TextView)findViewById(R.id.textView8);
 
         frame.setVisibility(ImageView.INVISIBLE);
+
+
+        if(!Python.isStarted())
+            Python.start(new AndroidPlatform(this));
+        Python py = Python.getInstance();
+        final PyObject pyobj = py.getModule("main");
+
+        PyObject obj = pyobj.callAttr("get_sum");
+        String s = obj.toString();
+        Text.setText(s);
 
         //draw(pyobj);
     }
