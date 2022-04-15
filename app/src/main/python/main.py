@@ -44,8 +44,7 @@ login_query = 'SELECT id_user, password_hash, full_name FROM ' \
                    'users WHERE username_email="{username_email}"'
 is_there_username_email = 'SELECT username_email FROM users ' \
                                'WHERE username_email="{username_email}"'
-edit_about_me_query = 'UPDATE users SET username_email="{username_email}", full_name="{full_name}" ' \
-                           'WHERE id_user={id_user}'
+edit_about_me_query = "UPDATE users SET username_email='{username_email}', full_name='{full_name}' WHERE id_user={id_user}"
 delete_my_account_query = 'DELETE FROM users WHERE id_user={id_user}'
 
 add_category_query = 'INSERT INTO categories(name, id_user, description) ' \
@@ -53,8 +52,7 @@ add_category_query = 'INSERT INTO categories(name, id_user, description) ' \
 get_categories_query = 'SELECT id_category, name, description FROM ' \
                             'categories WHERE id_user={id_user}'  #
 is_there_category = 'SELECT id_category FROM categories WHERE name="{name}", id_user={id_user}'
-edit_category_query = 'UPDATE categories SET name="{name}", description="{description}" ' \
-                           'WHERE id_category={id_category}'
+edit_category_query = "UPDATE categories SET name='{name}', description='{description}' WHERE id_category={id_category}"
 delete_category_query = 'DELETE FROM categories WHERE id_category={id_category}'
 
 add_deposit_category_query = 'INSERT INTO deposit_categories(name, id_user, description) ' \
@@ -63,8 +61,7 @@ get_deposit_categories_query = 'SELECT id_deposit_category, name, description FR
                                     'deposit_categories WHERE id_user={id_user}'  #
 is_there_deposit_category = 'SELECT id_deposit_category FROM deposit_categories WHERE name="{name}", ' \
                                  'id_user={id_user}'
-edit_deposit_category_query = 'UPDATE deposit_categories SET name="{name}", description="{description}" ' \
-                                   'WHERE id_deposit_category={id_deposit_category}'
+edit_deposit_category_query = "UPDATE deposit_categories SET name='{name}', description='{description}' WHERE id_deposit_category={id_deposit_category}"
 delete_deposit_category_query = 'DELETE FROM deposit_categories WHERE ' \
                                      'id_deposit_category={id_deposit_category}'
 
@@ -78,8 +75,7 @@ get_purchases_query = 'SELECT purchases.id_purchase, purchases.id_category, purc
 get_sum_purchase_query = 'SELECT sum FROM purchases WHERE purchase={purchase}'
 get_purchases_query2 = 'SELECT id_purchase, sum, date FROM ' \
                             'purchases WHERE id_category={id_category}'  #
-edit_purchase_query = 'UPDATE purchases SET id_category={id_category}, id_bank_account={id_bank_account}' \
-                           ' sum={sum}, date="{date}", comment="{comment}" WHERE id_purchase={id_purchase}'
+edit_purchase_query = "UPDATE purchases SET id_category={id_category}, id_bank_account={id_bank_account}, sum={sum}, date='{date}', comment='{comment}' WHERE id_purchase={id_purchase}"
 delete_purchase_query = 'DELETE FROM purchases WHERE id_purchase={id_purchase}'
 
 add_bank_account_query = 'INSERT INTO bank_accounts(name, id_user, current_sum, description) ' \
@@ -88,10 +84,8 @@ get_bank_accounts_query = 'SELECT id_bank_account, name, current_sum, descriptio
                                'bank_accounts WHERE id_user={id_user}'  #
 is_there_bank_account = 'SELECT id_bank_account FROM bank_accounts WHERE name="{name}", id_user={id_user}'
 get_current_sum_query = 'SELECT current_sum FROM bank_accounts WHERE id_bank_account={id_bank_account}'
-edit_sum_query = 'UPDATE bank_accounts SET current_sum={current_sum} ' \
-                      'WHERE id_bank_account={id_bank_account}'
-edit_bank_account_query = 'UPDATE bank_accounts SET name="{name}", description="{description}" ' \
-                               'current_sum={current_sum} WHERE id_bank_account={id_bank_account}'
+edit_sum_query = 'UPDATE bank_accounts SET current_sum={current_sum} WHERE id_bank_account={id_bank_account}'
+edit_bank_account_query = "UPDATE bank_accounts SET name='{name}', description='{description}', current_sum={current_sum} WHERE id_bank_account={id_bank_account}"
 delete_bank_account_query = 'DELETE FROM bank_accounts WHERE id_bank_account={id_bank_account}'
 
 add_deposit_query = 'INSERT INTO deposits(date_time_add, id_deposit_category, id_bank_account, sum,' \
@@ -104,9 +98,7 @@ get_deposits_query = 'SELECT deposits.id_deposit, deposits.id_deposit_category, 
 get_sum_deposit_query = 'SELECT sum FROM deposits WHERE deposit={deposit}'
 get_deposits_query2 = 'SELECT id_deposit, sum, date FROM ' \
                            'deposits WHERE id_deposit_category={id_deposit_category}'  #
-edit_deposit_query = 'UPDATE deposits SET id_deposit_category={id_deposit_category}, ' \
-                          'id_bank_account={id_bank_account} sum={sum}, date="{date}", comment="{comment}" ' \
-                          'WHERE id_deposit={id_deposit}'
+edit_deposit_query = "UPDATE deposits SET id_deposit_category={id_deposit_category}, id_bank_account={id_bank_account} sum={sum}, date='{date}', comment='{comment}' WHERE id_deposit={id_deposit}"
 delete_deposit_query = 'DELETE FROM deposits WHERE id_deposit={id_deposit}'
 
 bd_name = environ["HOME"] + "/db.sqlite3"
@@ -165,7 +157,7 @@ def login(username_email, password):
         id_user = ans[0][0]
         full_name = ans[0][2]
         write_all(id_user, full_name, username_email)
-        return "Здравствуйте, " + get_full_name()
+        return "Вход разрешен"
     return "Неверный логин или пароль"
 
 
@@ -294,13 +286,13 @@ def get_bank_accounts():
 def edit_bank_account(id_bank_account, name, current_sum, description):
     ans = search_category(name, get_bank_accounts())
     if ans and ans != id_bank_account:
-        return "Категория с таким названием уже существует"
+        return "Счет с таким названием уже существует"
     do_query(format(edit_bank_account_query, name, current_sum, description, id_bank_account))
     return "Данные изменены"
 
 def delete_bank_account(id_category):
     do_query(format(delete_bank_account_query, id_category))
-    return "Категория удалена"
+    return "Счет удален"
 
 
 def add_deposit(id_deposit_category, id_bank_account, sum, date, comment):
@@ -308,7 +300,8 @@ def add_deposit(id_deposit_category, id_bank_account, sum, date, comment):
     ans = get_data(format(get_current_sum_query, id_bank_account))[0][0]
     do_query(format(add_deposit_query, dt.now().strftime("%Y.%m.%d %H:%M:%S"), id_deposit_category, id_bank_account, sum, date, comment))
     do_query(format(edit_sum_query, id_bank_account, ans + sum))
-    return str(get_bank_accounts())
+    #return str(get_bank_accounts())
+    return "Данные изменены"
 
 def get_deposits():
     return get_data(format(get_deposits_query, get_id_user()))

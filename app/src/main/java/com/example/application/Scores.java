@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -25,11 +26,14 @@ import java.util.Arrays;
 
 public class Scores extends AppCompatActivity {
 
-    FrameLayout frame;
+    FrameLayout frame, frame2, frm;
     EditText Et1;
-    ImageButton Btn;
+    ImageButton Btn, Btn2;
     TextView Text;
     ListView listd;
+
+    Button Btn1;
+    int pz;
 
     private String[] name_bank_accounts;
     private int[] id_bank_accounts;
@@ -43,13 +47,19 @@ public class Scores extends AppCompatActivity {
         setContentView(R.layout.activity_scores);
 
         frame = (FrameLayout)findViewById(R.id.frame1);
+        frame2 = (FrameLayout)findViewById(R.id.frame2);
+        frm = (FrameLayout)findViewById(R.id.frameLayout);
         Et1 = (EditText)findViewById(R.id.count_name);
         Btn = (ImageButton)findViewById(R.id.add_cat);
         Text = (TextView)findViewById(R.id.textView17);
         listd = (ListView) findViewById(R.id.list);
 
+        Btn2 = (ImageButton)findViewById(R.id.rename);
+        Btn1 = (Button)findViewById(R.id.button3);
+
 
         frame.setVisibility(ImageView.INVISIBLE);
+        frame2.setVisibility(ImageView.INVISIBLE);
 
         if(!Python.isStarted())
             Python.start(new AndroidPlatform(this));
@@ -69,8 +79,42 @@ public class Scores extends AppCompatActivity {
                 frame.setVisibility(ImageView.INVISIBLE);
                 Toast.makeText(getApplicationContext(),"Новая карта добавлена",Toast.LENGTH_LONG).show();
                 draw(pyobj);
+                close(view);
             }
 
+        });
+
+        listd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                pz = position;
+                frame2.setVisibility(ImageView.VISIBLE);
+                frm.setVisibility(ImageView.INVISIBLE);
+            }
+        });
+
+        Btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                PyObject obj = pyobj.callAttr("delete_bank_account", id_bank_accounts[pz]);
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
+                draw(pyobj);
+                close2(view);
+            }
+        });
+
+        Btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                PyObject obj = pyobj.callAttr("edit_bank_account", id_bank_accounts[pz], name_bank_accounts[pz], "");
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(), "perenaz",Toast.LENGTH_LONG).show();
+                draw(pyobj);
+                close2(view);
+            }
         });
     }
 
@@ -94,10 +138,22 @@ public class Scores extends AppCompatActivity {
 
     public void open(View view) {
         frame.setVisibility(ImageView.VISIBLE);
+        frm.setVisibility(ImageView.INVISIBLE);
     }
 
     public void close(View view) {
         frame.setVisibility(ImageView.INVISIBLE);
+        frm.setVisibility(ImageView.VISIBLE);
+    }
+
+    public void open2(View view) {
+        frame2.setVisibility(ImageView.VISIBLE);
+        frm.setVisibility(ImageView.INVISIBLE);
+    }
+
+    public void close2(View view) {
+        frame2.setVisibility(ImageView.INVISIBLE);
+        frm.setVisibility(ImageView.VISIBLE);
     }
 
     public void bank(View view) {
@@ -129,4 +185,6 @@ public class Scores extends AppCompatActivity {
         Intent intent = new Intent(this, OperationsActivity.class);
         startActivity(intent);
     }
+
+
 }

@@ -33,8 +33,14 @@ public class OperationsActivity extends AppCompatActivity {
     private ArrayAdapter<String> mAdapter;
     private ArrayList<String> catNamesList;
 
+    private String[] name_operations;
+    private int[] id_operations;
+
+
+
     FrameLayout frame;
     TextView Text, Text1, Text2;
+    TextView Text, t1, t2, t3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +50,18 @@ public class OperationsActivity extends AppCompatActivity {
         listd = (ListView) findViewById(R.id.list);
         frame = (FrameLayout)findViewById(R.id.frame1);
         Text = (TextView)findViewById(R.id.textView8);
+        t1 = (TextView)findViewById(R.id.textView37);
+        t2 = (TextView)findViewById(R.id.textView38);
+        t3 = (TextView)findViewById(R.id.textView39);
         Text1 = (TextView)findViewById(R.id.textView11);
         Text2 = (TextView)findViewById(R.id.textView13);
 
         frame.setVisibility(ImageView.INVISIBLE);
+
+        //ListView listView = (ListView) findViewById(R.id.listView);
+
+        //ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
+        //HashMap<String, String> map;
 
 
         if(!Python.isStarted())
@@ -58,6 +72,10 @@ public class OperationsActivity extends AppCompatActivity {
         PyObject obj = pyobj.callAttr("get_sum");
         String s = obj.toString();
         Text.setText(s);
+        /*int s1 = obj.toInt();
+        t1.setText((int) (s1/1.04));
+        t2.setText((int) (s1/1.085));
+        t3.setText((int) (s1/1.17));*/
 
         PyObject obj1 = pyobj.callAttr("get_sum_deposits");
         String s1 = obj1.toString();
@@ -71,18 +89,18 @@ public class OperationsActivity extends AppCompatActivity {
 
     /*public void draw(PyObject pyobj) {
         int cut = 3;
-        PyObject list2 = pyobj.callAttr("get_bank_accounts");
+        PyObject list2 = pyobj.callAttr("get_purchase");
         PyObject obj2 = pyobj.callAttr("to_line_list", list2, cut);
         String[] arr2 = obj2.toJava(String[].class);
-        id_bank_accounts = new int[arr2.length / cut];
-        name_bank_accounts = new String[arr2.length / cut];
+        id_operations = new int[arr2.length / cut];
+        name_operations = new String[arr2.length / cut];
         for (int i = 0; i < arr2.length; i += cut) {
-            id_bank_accounts[i / cut] = Integer.parseInt(arr2[i]);
-            name_bank_accounts[i / cut] = arr2[i + 1] + " (" + arr2[i + 2] + "₽)";
+            id_operations[i / cut] = Integer.parseInt(arr2[i]);
+            name_operations[i / cut] = arr2[i + 1] + " (" + arr2[i + 2] + "₽)";
         }
 
-        accsNamesList = new ArrayList<>(Arrays.asList(name_bank_accounts));
-        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, accsNamesList);
+        catNamesList = new ArrayList<>(Arrays.asList(name_operations));
+        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, catNamesList+"            ", catNamesList+"            ");
         listd.setAdapter(mAdapter);
         //Toast.makeText(getApplicationContext(),catNamesList + "",Toast.LENGTH_LONG).show();
     }*/
