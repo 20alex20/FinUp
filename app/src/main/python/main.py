@@ -259,7 +259,7 @@ def delete_deposit_category(id_deposit_category):
 
 def add_purchase(id_category, id_bank_account, sum, date, comment):
     ans = get_data(format(get_current_sum_query, id_bank_account))[0][0]
-    if ans < sum:
+    if int(ans) < sum:
         return "Средств недостаточно"
     do_query(format(add_purchase_query, dt.now().strftime("%Y.%m.%d %H:%M:%S"),
                          id_category, id_bank_account, sum, date, comment))
@@ -273,7 +273,7 @@ def get_purchase():
 def edit_purchase(id_purchase, id_category, id_bank_account, sum, date, comment):
     ans = get_data(format(get_current_sum_query, id_bank_account))[0][0]
     ans2 = get_data(format(get_sum_purchase_query, id_purchase))[0][0]
-    if ans < sum - ans2:
+    if int(ans) < sum - ans2:
         return "Средств недостаточно"
     do_query(format(add_purchase_query, id_category, id_bank_account, sum, date, comment, id_purchase))
     do_query(format(edit_sum_query, id_bank_account, ans - (sum - ans2)))
@@ -309,10 +309,8 @@ def delete_bank_account(id_category):
 def add_deposit(id_deposit_category, id_bank_account, sum, date, comment):
     sum = int(sum)
     ans = get_data(format(get_current_sum_query, id_bank_account))[0][0]
-    if ans < sum:
-        return "Средств недостаточно"
     do_query(format(add_deposit_query, dt.now().strftime("%Y.%m.%d %H:%M:%S"), id_deposit_category, id_bank_account, sum, date, comment))
-    do_query(format(edit_sum_query, id_bank_account, ans - sum))
+    do_query(format(edit_sum_query, id_bank_account, ans + sum))
     return "Данные изменены"
 
 def get_deposits():

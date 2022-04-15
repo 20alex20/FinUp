@@ -66,6 +66,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="14dp"
                 android:background="#00FFFFFF"
+                android:onClick="bank"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/rectangle_61"
                 tools:ignore="SpeakableTextPresentCheck" />

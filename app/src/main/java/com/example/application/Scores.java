@@ -43,7 +43,7 @@ public class Scores extends AppCompatActivity {
             public void onClick(View view) {
                 PyObject obj = pyobj.callAttr("add_bank_account", Et1.getText().toString(), 0);
                 frame.setVisibility(ImageView.INVISIBLE);
-                Toast.makeText(getApplicationContext(),"SAVED",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Новая карта добавлена",Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -55,6 +55,11 @@ public class Scores extends AppCompatActivity {
     public void close(View view) {
         frame.setVisibility(ImageView.INVISIBLE);
     }
+
+    public void bank(View view) {
+        Toast.makeText(getApplicationContext(),"Автоматическая интеграция с мобильными приложениями банков дуоступна только в платной весрии",Toast.LENGTH_LONG).show();
+    }
+
 
     public void AddExpense(View view) {
         Intent intent = new Intent(this, AddExpenses.class);
