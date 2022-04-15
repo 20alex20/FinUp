@@ -81,6 +81,11 @@ public class More extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void AddIncomeCategories(View view) {
+        Intent intent = new Intent(this, Income_categories.class);
+        startActivity(intent);
+    }
+
     public void Login(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

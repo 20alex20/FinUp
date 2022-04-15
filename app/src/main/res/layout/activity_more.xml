@@ -125,6 +125,7 @@
                     android:layout_marginTop="82dp"
                     android:background="#009F9F9F"
                     android:contentDescription="@string/todo"
+                    android:onClick="AddIncomeCategories"
                     app:srcCompat="@drawable/empty" />
 
                 <ImageButton

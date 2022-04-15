@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
@@ -92,11 +93,11 @@ public class Graphics2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 PyObject obj = pyobj.callAttr("graph", false, "pie", Et1.getText().toString(), Et2.getText().toString());
-                //String s = obj.toString();
-                //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
-                byte[] ba = obj.toJava(byte[].class);
-                iv.setVisibility(View.VISIBLE);
-                iv.setImageBitmap(BitmapFactory.decodeByteArray(ba,0, ba.length));
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+                //byte[] ba = obj.toJava(byte[].class);
+                //iv.setVisibility(View.VISIBLE);
+                //iv.setImageBitmap(BitmapFactory.decodeByteArray(ba,0, ba.length));
             }
         });
         Btn3.setOnClickListener(new View.OnClickListener() {
