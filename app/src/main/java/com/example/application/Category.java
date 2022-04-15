@@ -62,7 +62,8 @@ public class Category extends AppCompatActivity {
             public void onClick(View view) {
                 PyObject obj = pyobj.callAttr("add_category", Et1.getText().toString(), "");
                 frame1.setVisibility(ImageView.INVISIBLE);
-                Toast.makeText(getApplicationContext(),"Данные изменены",Toast.LENGTH_LONG).show();
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
 
                 draw(pyobj);
             }
