@@ -18,213 +18,203 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/_66_1" />
 
-    <ScrollView
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
+        android:text="0₽"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:text="Баланс"
+        android:textColor="#80000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:text="Счета"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="Карты и счета"
+        android:layout_marginTop="15dp"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="188dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        app:srcCompat="@drawable/rectangle_61"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/adding"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:onClick="open"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toTopOf="@+id/textView22"
+        app:srcCompat="@drawable/plus" />
+
+    <LinearLayout
+        android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="95dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="390dp">
+
+        </ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:layout_editor_absoluteY="15dp">
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30dp"
+                app:srcCompat="@drawable/icons8__123" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
-                android:layout_marginTop="30dp"
-                android:text="0₽"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="80dp"
+                android:text="Наличные"
                 android:textColor="#000000"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
-                android:text="Баланс"
-                android:textColor="#80000000"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="30dp"
-                android:text="Счета"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="325dp"
+                android:text="0₽"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <ImageButton
-                android:id="@+id/imageButton6"
-                android:layout_width="188dp"
-                android:layout_height="180dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="14dp"
+                android:id="@+id/imageButton14"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="15dp"
                 android:background="#00FFFFFF"
-                android:onClick="bank"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/rectangle_61"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/exit"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </FrameLayout>
 
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:text="Карты и счета"
-                android:textColor="#000000"
-                android:textSize="24sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <FrameLayout
-                    android:id="@+id/frameLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <ImageView
-                        android:id="@+id/imageView11"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="30dp"
-                        app:srcCompat="@drawable/icons8__123" />
-
-                    <TextView
-                        android:id="@+id/textView23"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="80dp"
-                        android:text="Наличные"
-                        android:textColor="#000000"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/textView24"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="325dp"
-                        android:text="0₽"
-                        android:textColor="#000000"
-                        android:textSize="20sp" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton14"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical|end"
-                        android:layout_marginEnd="15dp"
-                        android:background="#00FFFFFF"
-                        android:backgroundTint="#00FFFFFF"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/exit"
-                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/frameLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp">
-
-                    <ImageView
-                        android:id="@+id/imageView12"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="30dp"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/icons8___100_2" />
-
-                    <TextView
-                        android:id="@+id/textView25"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="80dp"
-                        android:text="Карта 1"
-                        android:textColor="#000000"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/textView26"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="325dp"
-                        android:text="0₽"
-                        android:textColor="#000000"
-                        android:textSize="20sp" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton15"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical|end"
-                        android:layout_marginEnd="15dp"
-                        android:background="#00FFFFFF"
-                        android:backgroundTint="#00FFFFFF"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/exit"
-                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
-
-                    <ImageButton
-                        android:id="@+id/imageButton7"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="#00FFFFFF"
-                        android:onClick="open"
-                        app:srcCompat="@drawable/empty"
-                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-                    <ImageView
-                        android:id="@+id/imageView13"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="30dp"
-                        app:srcCompat="@drawable/plus" />
-
-                    <TextView
-                        android:id="@+id/textView27"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="80dp"
-                        android:text="Добавить карту"
-                        android:textColor="#FF9E58"
-                        android:textSize="20sp" />
-
-                </FrameLayout>
-            </LinearLayout>
+        <FrameLayout
+            android:id="@+id/frameLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp">
 
             <ImageView
-                android:id="@+id/imageView23"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                app:srcCompat="@drawable/empty" />
+                android:id="@+id/imageView12"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/icons8___100_2" />
 
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="80dp"
+                android:text="Карта 1"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-        </LinearLayout>
-    </ScrollView>
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="325dp"
+                android:text="0₽"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/imageButton15"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="15dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/exit"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </FrameLayout>
+
+    </LinearLayout>
+
 
     <FrameLayout
         android:id="@+id/frame1"

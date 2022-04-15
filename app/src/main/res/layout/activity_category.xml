@@ -371,7 +371,7 @@
         android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -441,7 +441,7 @@
         android:id="@+id/frame2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -482,14 +482,14 @@
             android:inputType="text" />
 
         <ImageButton
-            android:id="@+id/add_cat2"
+            android:id="@+id/rename"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_marginStart="115dp"
             android:layout_marginBottom="30dp"
             android:background="#00FFFFFF"
-            android:onClick="close"
+            android:onClick="close2"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/yesyes"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -502,7 +502,7 @@
             android:layout_marginStart="130dp"
             android:layout_marginBottom="96dp"
             android:background="#00FFFFFF"
-            android:onClick="close"
+            android:onClick="close2"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/button_zakryt" />
 
@@ -512,6 +512,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
+            android:onClick="close2"
             android:text="Удалить"
             android:textColor="#FFFFFF"
             app:iconTint="#FFFFFF" />
