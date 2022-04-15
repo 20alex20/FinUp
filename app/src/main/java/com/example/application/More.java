@@ -43,14 +43,10 @@ public class More extends AppCompatActivity {
                 PyObject obj = pyobj.callAttr("logout");
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
-                Login(null);
+                Loggout();
             }
         });
 
-        draw(pyobj);
-    }
-
-    public void draw(PyObject pyobj) {
         PyObject obj = pyobj.callAttr("get_full_name");
         String NAME = obj.toString();
         name.setText(NAME);
@@ -58,6 +54,7 @@ public class More extends AppCompatActivity {
         String EMAIL = obj2.toString();
         email.setText(EMAIL);
     }
+
 
     public void Scores(View view) {
         Intent intent = new Intent(this, Scores.class);
@@ -85,6 +82,10 @@ public class More extends AppCompatActivity {
     }
 
     public void Login(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void Loggout() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

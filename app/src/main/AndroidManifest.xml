@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application">
         <activity
+            android:name=".Income_categories"
+            android:exported="false" />
+        <activity
+            android:name=".Graphics2"
+            android:exported="false" />
+        <activity
             android:name=".AddIncomes"
             android:exported="false" />
         <activity

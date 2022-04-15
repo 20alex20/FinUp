@@ -38,4 +38,9 @@ public class Analytics extends AppCompatActivity {
         Intent intent = new Intent(this, Graphics.class);
         startActivity(intent);
     }
+
+    public void Graphics2(View view) {
+        Intent intent = new Intent(this, Graphics2.class);
+        startActivity(intent);
+    }
 }

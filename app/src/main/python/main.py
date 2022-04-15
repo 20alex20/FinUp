@@ -154,7 +154,7 @@ def to_line_list(arr, cut=None):
 def get_all_data():
     ans = []
     id_user = get_id_user()
-    for i in ("get_categories_query", "get_deposit_categories_query", "get_purchases_query2", "get_bank_accounts_query", "get_deposits_query2"):
+    for i in sorted(["get_categories_query", "get_deposit_categories_query", "get_purchases_query2", "get_bank_accounts_query", "get_deposits_query2"]):
         ans.append(format(i, id_user))
     return ans
 
@@ -197,7 +197,7 @@ def edit_about_me(username_email, full_name):
     return "Данные изменены"
 
 def logout():
-    with open(session_file, 'r') as f:
+    with open(session_file, 'w') as f:
         f.write("")
     return "Выход произведен успешно"
 

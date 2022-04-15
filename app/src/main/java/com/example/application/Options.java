@@ -13,10 +13,11 @@ import android.widget.Toast;
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
+import android.widget.Button;
 
 public class Options extends AppCompatActivity {
 
-    ImageButton Bt1;
+    Button Btn1, Btn2;
     FrameLayout frame1;
 
     @Override
@@ -24,45 +25,35 @@ public class Options extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
 
-        Bt1 = (ImageButton)findViewById(R.id.export_bt);
         frame1 = (FrameLayout) findViewById(R.id.frame1);
 
         frame1.setVisibility(ImageView.INVISIBLE);
-        Btn1 = (ImageButton)findViewById(R.id.export_bt);
-        Btn2 = (ImageButton)findViewById(R.id.export_bt);
+        Btn1 = (Button)findViewById(R.id.button4);
+        Btn2 = (Button)findViewById(R.id.button6);
 
-        //if(!Python.isStarted())
-        //    Python.start(new AndroidPlatform(this));
+        if(!Python.isStarted())
+            Python.start(new AndroidPlatform(this));
 
-        //Python py = Python.getInstance();
-        //final PyObject pyobj = py.getModule("csv_xlsx");
+        Python py = Python.getInstance();
+        final PyObject pyobj = py.getModule("csv_xlsx");
 
         Btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("export_csv", Et1.getText().toString(), Et2.getText().toString());
+                PyObject obj = pyobj.callAttr("export_csv");
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
-                if (s.equals("Вход разрешен")) {
-                    btnMain(view);
-                }
-                // tv.setText(obj.toString());
             }
         });
 
         Btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("export_xlsx", Et1.getText().toString(), Et2.getText().toString());
+                PyObject obj = pyobj.callAttr("export_xlsx");
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
-                if (s.equals("Вход разрешен")) {
-                    btnMain(view);
-                }
-                // tv.setText(obj.toString());
             }
         });
-
     }
 
     public void goBack(View view) {
