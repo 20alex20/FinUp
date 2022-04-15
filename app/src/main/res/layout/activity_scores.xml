@@ -72,6 +72,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:background="#00FFFFFF"
+        android:onClick="bank"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19"
@@ -111,6 +112,88 @@
         </ListView>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#54818181"
+            app:srcCompat="@drawable/empty" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/rectangle_39" />
+
+        <TextView
+            android:id="@+id/textV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="70dp"
+            android:text="Изменить название:"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/cat_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:hint="Инструменты, Дети..."
+            android:inputType="text" />
+
+        <ImageButton
+            android:id="@+id/rename"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="115dp"
+            android:layout_marginBottom="30dp"
+            android:background="#00FFFFFF"
+            android:onClick="close2"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/yesyes"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/imageBut"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="130dp"
+            android:layout_marginBottom="96dp"
+            android:background="#00FFFFFF"
+            android:onClick="close2"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/button_zakryt" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:onClick="close2"
+            android:text="Удалить"
+            android:textColor="#FFFFFF"
+            app:iconTint="#FFFFFF" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -291,6 +374,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="90dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         tools:layout_editor_absoluteX="18dp">
 

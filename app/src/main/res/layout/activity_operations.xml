@@ -40,14 +40,30 @@
                 android:textAlignment="textEnd"
                 app:srcCompat="@drawable/icons8__123" />
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/balance"
-                android:textColor="#6E6E6E"
-                android:textSize="27sp" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton26"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:background="#00FFFFFF"
+                    android:onClick="open"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/icons8_i_52" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:text="@string/balance"
+                    android:textColor="#6E6E6E"
+                    android:textSize="27sp" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/textView8"
@@ -71,7 +87,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="visible">
 
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -300,7 +317,7 @@
         android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -313,44 +330,99 @@
 
         <ImageView
             android:id="@+id/imageView10"
+            android:layout_width="344dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/rectangle_42" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/rectangle_39" />
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:text="3 месяца:" />
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:text="6 месяцев:" />
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:text="1 год:" />
+
+                <TextView
+                    android:id="@+id/textView39"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="115dp"
-            android:layout_marginBottom="30dp"
-            android:text="Сумма:"
+            android:layout_marginBottom="110dp"
+            android:text="С учетом инфляции:"
             android:textSize="16dp" />
-
-        <EditText
-            android:id="@+id/count_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="40dp"
-            android:ems="10"
-            android:hint="1000₽"
-            android:inputType="number" />
-
-        <ImageButton
-            android:id="@+id/add_cat"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="115dp"
-            android:layout_marginTop="5dp"
-            android:background="#00FFFFFF"
-            android:onClick="close"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/yesyes"
-            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/imageButton28"
@@ -358,7 +430,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginStart="130dp"
-            android:layout_marginBottom="56dp"
+            android:layout_marginBottom="136dp"
             android:background="#00FFFFFF"
             android:onClick="close"
             android:scaleType="fitCenter"

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -26,7 +27,8 @@ public class Income_categories extends AppCompatActivity {
 
     FrameLayout frame1, frame2;
     EditText Et1;
-    ImageButton Btn;
+    ImageButton Btn, Btn2;
+    Button Btn1;
     ListView listd;
 
     private String[] name_categories;
@@ -34,6 +36,7 @@ public class Income_categories extends AppCompatActivity {
 
     private ArrayAdapter<String> mAdapter;
     private ArrayList<String> catNamesList;
+    int pz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,9 @@ public class Income_categories extends AppCompatActivity {
         frame2 = (FrameLayout)findViewById(R.id.frame2);
         Et1 = (EditText)findViewById(R.id.cat_name);
         Btn = (ImageButton)findViewById(R.id.add_cat);
+        Btn2 = (ImageButton)findViewById(R.id.rename);
+        Btn1 = (Button)findViewById(R.id.button3);
+
         listd = (ListView) findViewById(R.id.list);
 
         frame1.setVisibility(ImageView.INVISIBLE);
@@ -65,6 +71,37 @@ public class Income_categories extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Данные изменены",Toast.LENGTH_LONG).show();
 
                 draw(pyobj);
+            }
+        });
+        listd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                pz = position;
+                frame2.setVisibility(ImageView.VISIBLE);
+            }
+        });
+
+        Btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                PyObject obj = pyobj.callAttr("delete_category", id_categories[pz]);
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
+                draw(pyobj);
+                close2(view);
+            }
+        });
+
+        Btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                PyObject obj = pyobj.callAttr("edit_category", id_categories[pz], name_categories[pz], "");
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(), "perenaz",Toast.LENGTH_LONG).show();
+                draw(pyobj);
+                close2(view);
             }
         });
     }
