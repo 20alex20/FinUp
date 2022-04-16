@@ -47,6 +47,7 @@ is_there_username_email = 'SELECT username_email FROM users ' \
 edit_about_me_query = "UPDATE users SET username_email='{username_email}', full_name='{full_name}' WHERE id_user={id_user}"
 delete_my_account_query = 'DELETE FROM users WHERE id_user={id_user}'
 get_category_name_by_id = 'SELECT name FROM categories WHERE id_category={id_category}'
+get_deposit_category_name_by_id = 'SELECT name FROM deposit_categories WHERE id_deposit_category={id_deposit_category}'
 get_bank_acc_name_by_id = 'SELECT name FROM bank_accounts WHERE id_bank_account={id_bank_account}'
 add_category_query = 'INSERT INTO categories(name, id_user, description) ' \
                           'VALUES("{name}", {id_user}, "{description}")'
@@ -376,3 +377,7 @@ def get_category_name(id_category):
 def get_bank_acc_name(id_bank_account):
     id_bank_account = int(id_bank_account)
     return get_data(format(get_bank_acc_name_by_id, id_bank_account))[0][0]
+
+def get_deposit_category_name(id_deposit_category):
+    id_deposit_category = int(id_deposit_category)
+    return get_data(format(get_deposit_category_name_by_id, id_deposit_category))[0][0]

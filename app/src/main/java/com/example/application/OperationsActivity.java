@@ -109,12 +109,20 @@ public class OperationsActivity extends AppCompatActivity {
         PyObject list2 = pyobj.callAttr("get_purchase");
         PyObject obj2 = pyobj.callAttr("to_line_list", list2, cut);
         String[] arr2 = obj2.toJava(String[].class);
+
+        PyObject list3 = pyobj.callAttr("get_deposits");
+        PyObject obj3 = pyobj.callAttr("to_line_list", list3, cut);
+        String[] arr3 = obj3.toJava(String[].class);
+
         id_operations = new String[arr2.length / cut];
         id_categ = new String[arr2.length / cut];
         id_acc = new String[arr2.length / cut];
         value = new String[arr2.length / cut];
         data = new String[arr2.length / cut];
-        sm = new String[arr2.length / cut];
+
+        sm = new String[arr2.length / cut + arr3.length / cut];
+        int cnt = 0;
+
         for (int i = 0; i < arr2.length; i += cut) {
             //id_operations[i / cut] = Integer.parseInt(arr2[i]);
             //id_categ[i / cut] = Integer.parseInt(arr2[i+1]);
@@ -128,8 +136,27 @@ public class OperationsActivity extends AppCompatActivity {
             PyObject category_name = pyobj.callAttr("get_category_name", id_categ[i / cut]);
             PyObject bank_acc_name = pyobj.callAttr("get_bank_acc_name", id_acc[i / cut]);
             //sm[i / cut] = id_categ[i / cut] +" "+id_acc[i / cut]+" "+ value[i / cut]+"\n" +data[i / cut];
-            sm[i / cut] = "Категория: " + category_name + "\n" + "Счет списания: " + bank_acc_name + "\n"
+            sm[cnt] = "Тип операции: Расход\n" + "Категория: " + category_name + "\n" + "Счет списания: " + bank_acc_name + "\n"
                     + "Сумма: " + value[i / cut] + "₽" + "\n" + "Дата: " + data[i / cut];
+            cnt +=1;
+        }
+
+        for (int i = 0; i < arr3.length; i += cut) {
+            //id_operations[i / cut] = Integer.parseInt(arr2[i]);
+            //id_categ[i / cut] = Integer.parseInt(arr2[i+1]);
+            //id_acc[i / cut] = Integer.parseInt(arr2[i+2]);
+            //value[i / cut] = Integer.parseInt(arr2[i+3]);
+            id_operations[i / cut] = arr3[i];
+            id_categ[i / cut] = arr3[i+1];
+            id_acc[i / cut] = arr3[i+2];
+            value[i / cut] = arr3[i+3];
+            data[i / cut] = arr3[i+4];
+            PyObject category_name = pyobj.callAttr("get_deposit_category_name", id_categ[i / cut]);
+            PyObject bank_acc_name = pyobj.callAttr("get_bank_acc_name", id_acc[i / cut]);
+            //sm[i / cut] = id_categ[i / cut] +" "+id_acc[i / cut]+" "+ value[i / cut]+"\n" +data[i / cut];
+            sm[cnt] = "Тип операции: Доход\n" + "Категория: " + category_name + "\n" + "Счет списания: " + bank_acc_name + "\n"
+                    + "Сумма: " + value[i / cut] + "₽" + "\n" + "Дата: " + data[i / cut];
+            cnt +=1;
         }
 
         opNamesList = new ArrayList<>(Arrays.asList(id_operations));
