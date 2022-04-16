@@ -138,7 +138,7 @@ public class OperationsActivity extends AppCompatActivity {
         valueList = new ArrayList<>(Arrays.asList(value));
         dataList = new ArrayList<>(Arrays.asList(data));
         smlist = new ArrayList<>(Arrays.asList(sm));
-        Toast.makeText(getApplicationContext(),dataList + "",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),dataList + "",Toast.LENGTH_LONG).show();
         //+" "+catNamesList+" "+accNamesList+" "+valueList+" "+dataList+" "+namesList
         mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, smlist);
         listd.setAdapter(mAdapter);

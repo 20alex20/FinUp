@@ -123,7 +123,7 @@ public class Scores extends AppCompatActivity {
     public void draw(PyObject pyobj) {
         int cut = 3;
         PyObject list2 = pyobj.callAttr("get_bank_accounts");
-        Toast.makeText(getApplicationContext(),list2 + "",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),list2 + "",Toast.LENGTH_LONG).show();
         PyObject obj2 = pyobj.callAttr("to_line_list", list2, cut);
         String[] arr2 = obj2.toJava(String[].class);
         id_bank_accounts = new int[arr2.length / cut];

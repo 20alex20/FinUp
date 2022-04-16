@@ -336,7 +336,7 @@ def get_sum():
 
     for i in get_bank_accounts():
         sum += get_data(format(get_current_sum_query, i[0]))[0][0]
-    return str(sum) + '₽'
+    return str(sum) + ' ₽'
 
 def get_sum_deposits():
     sum = 0
@@ -349,7 +349,7 @@ def get_sum_deposits():
             dd = [int(i) for i in date.split(".")][1:]
             if dd == now:
                 sum += int(summa)
-    return str(sum) + '₽'
+    return str(sum) + ' ₽'
 
 def get_sum_purchases():
     sum = 0
@@ -360,13 +360,13 @@ def get_sum_purchases():
             dd = [int(i) for i in date.split(".")][1:]
             if dd == now:
                 sum += int(summa)
-    return str(sum) + '₽'
+    return str(sum) + ' ₽'
 
 def calc_inf(sum, percent, num_month):
     sum = sum[:-1]
     sum = int(sum)
     num = int(sum / (1 + int(percent) / 100 / 12 * num_month))
-    return str(num) + '₽'
+    return str(num) + ' ₽'
 
 
 def get_category_name(id_category):

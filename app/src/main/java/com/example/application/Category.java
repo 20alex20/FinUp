@@ -101,7 +101,7 @@ public class Category extends AppCompatActivity {
 
                 PyObject obj = pyobj.callAttr("edit_category", id_categories[pz], name_categories[pz], "");
                 String s = obj.toString();
-                Toast.makeText(getApplicationContext(), "perenaz",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
                 draw(pyobj);
                 close2(view);
             }
