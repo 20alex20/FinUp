@@ -46,7 +46,8 @@ is_there_username_email = 'SELECT username_email FROM users ' \
                                'WHERE username_email="{username_email}"'
 edit_about_me_query = "UPDATE users SET username_email='{username_email}', full_name='{full_name}' WHERE id_user={id_user}"
 delete_my_account_query = 'DELETE FROM users WHERE id_user={id_user}'
-
+get_category_name_by_id = 'SELECT name FROM categories WHERE id_category={id_category}'
+get_bank_acc_name_by_id = 'SELECT name FROM bank_accounts WHERE id_bank_account={id_bank_account}'
 add_category_query = 'INSERT INTO categories(name, id_user, description) ' \
                           'VALUES("{name}", {id_user}, "{description}")'
 get_categories_query = 'SELECT id_category, name, description FROM ' \
@@ -146,8 +147,8 @@ def to_line_list(arr, cut=None):
 def get_all_data():
     ans = []
     id_user = get_id_user()
-    for i in sorted(["get_categories_query", "get_deposit_categories_query", "get_purchases_query2", "get_bank_accounts_query", "get_deposits_query2"]):
-        ans.append(format(i, id_user))
+    for i in [get_bank_accounts_query, get_categories_query, get_deposits_query, get_deposit_categories_query, get_purchases_query]:
+        ans.append(get_data(format(i, id_user)))
     return ans
 
 
@@ -360,3 +361,18 @@ def get_sum_purchases():
             if dd == now:
                 sum += int(summa)
     return str(sum) + '₽'
+
+def calc_inf(sum, percent, num_month):
+    sum = sum[:-1]
+    sum = int(sum)
+    num = int(sum / (1 + int(percent) / 100 / 12 * num_month))
+    return str(num) + '₽'
+
+
+def get_category_name(id_category):
+    id_category = int(id_category)
+    return get_data(format(get_category_name_by_id, id_category))[0][0]
+
+def get_bank_acc_name(id_bank_account):
+    id_bank_account = int(id_bank_account)
+    return get_data(format(get_bank_acc_name_by_id, id_bank_account))[0][0]

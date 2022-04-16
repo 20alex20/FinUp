@@ -1,6 +1,7 @@
 import csv
 import xlsxwriter
 from main import get_all_data
+from main import environ
 
 
 headers2 = {
@@ -19,6 +20,7 @@ def export_csv():
             writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(headers)
             writer.writerows(cur_list)
+    return "Данные изменены"
 
 
 def export_xlsx():  # directory - Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
