@@ -106,7 +106,7 @@ public class OperationsActivity extends AppCompatActivity {
 
     public void draw(PyObject pyobj) {
         int cut = 6;
-        PyObject list2 = pyobj.callAttr("get_purchase");
+        PyObject list2 = pyobj.callAttr("get_get");
         PyObject obj2 = pyobj.callAttr("to_line_list", list2, cut);
         String[] arr2 = obj2.toJava(String[].class);
         id_operations = new String[arr2.length / cut];
@@ -125,7 +125,13 @@ public class OperationsActivity extends AppCompatActivity {
             id_acc[i / cut] = arr2[i+2];
             value[i / cut] = arr2[i+3];
             data[i / cut] = arr2[i+4];
-            PyObject category_name = pyobj.callAttr("get_category_name", id_categ[i / cut]);
+            PyObject category_name;
+            if (arr2[i+5].equals("0")) {
+                category_name = pyobj.callAttr("get_deposit_category_name", id_categ[i / cut]);
+            }
+            else {
+                category_name = pyobj.callAttr("get_category_name", id_categ[i / cut]);
+            }
             PyObject bank_acc_name = pyobj.callAttr("get_bank_acc_name", id_acc[i / cut]);
             //sm[i / cut] = id_categ[i / cut] +" "+id_acc[i / cut]+" "+ value[i / cut]+"\n" +data[i / cut];
             sm[i / cut] = "Категория: " + category_name + "\n" + "Счет списания: " + bank_acc_name + "\n"
