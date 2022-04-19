@@ -13,10 +13,10 @@ headers2 = {
 }
 directory = environ["HOME"]
 
-def export_csv():
+def export_csv(d=None):
     for name, cur_list in zip(sorted(headers2), get_all_data()):
         headers = headers2[name]
-        with open(directory + f'/export_data_FinUp_{name}.csv', 'w', newline='') as csvfile:
+        with open(d + f'/export_data_FinUp_{name}.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(headers)
             writer.writerows(cur_list)
@@ -24,7 +24,7 @@ def export_csv():
 
 
 def export_xlsx(d=None):  # directory - Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-    workbook = xlsxwriter.Workbook(directory + '/export_data_FinUp.xlsx')
+    workbook = xlsxwriter.Workbook(d + '/export_data_FinUp.xlsx')
     for name, cur_list in zip(sorted(headers2), get_all_data()):
         headers = headers2[name]
         worksheet = workbook.add_worksheet()

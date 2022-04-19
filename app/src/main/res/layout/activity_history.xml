@@ -326,4 +326,80 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icons8__144" />
 
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CC818181"
+            app:srcCompat="@drawable/empty" />
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_calen"
+            android:selectedDateVerticalBar="@android:color/holo_orange_light"
+            app:barrierMargin="5dp" />
+
+        <ImageButton
+            android:id="@+id/imag"
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="162dp"
+            android:background="#00FFFFFF"
+            android:onClick="close"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/button_zakryt" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CC818181"
+            app:srcCompat="@drawable/empty" />
+
+        <CalendarView
+            android:id="@+id/calendarView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_calen"
+            android:selectedDateVerticalBar="@android:color/holo_orange_light"
+            app:barrierMargin="5dp" />
+
+        <ImageButton
+            android:id="@+id/imageBt"
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="162dp"
+            android:background="#00FFFFFF"
+            android:onClick="close2"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/button_zakryt" />
+
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

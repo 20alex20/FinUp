@@ -154,6 +154,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="460dp"
         android:ems="10"
+        android:text="20.4.2022"
         android:inputType="date"
         android:minHeight="48dp"
         android:textColor="#80000000"

@@ -49,7 +49,7 @@ public class OperationsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_operations);
+        setContentView(R.layout.activity_operations1);
 
         listd = (ListView) findViewById(R.id.listhis);
         frame = (FrameLayout)findViewById(R.id.frame1);

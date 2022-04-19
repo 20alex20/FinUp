@@ -16,6 +16,14 @@ import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import android.widget.Button;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import java.io.File;
 
 public class Options extends AppCompatActivity {
@@ -52,7 +60,7 @@ public class Options extends AppCompatActivity {
         Btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("export_csv");
+                PyObject obj = pyobj.callAttr("export_csv", s1);
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
             }
@@ -64,6 +72,25 @@ public class Options extends AppCompatActivity {
                 PyObject obj = pyobj.callAttr("export_xlsx", s1);
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+                /*File sdPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                // добавляем свой каталог к пути
+                sdPath = new File(sdPath.getAbsolutePath() + "/" + "filename");
+                // создаем каталог
+                if (!sdPath.mkdirs()) {
+                    Toast.makeText(getApplicationContext(),"not created",Toast.LENGTH_SHORT).show();
+                }
+                // формируем объект File, который содержит путь к файлу
+                File sdFile = new File(sdPath, "filesd.txt");
+                try {
+                    // открываем поток для записи
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFile));
+                    // пишем данные
+                    bw.write("Содержимое файла на SD");
+                    // закрываем поток
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
             }
         });
 

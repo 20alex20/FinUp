@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -30,6 +31,7 @@ public class History extends AppCompatActivity {
     private String[] filters = {"Нет", "Дате", "Категориям", "Счету", "Сумме"};
     private String[] pur_dep = {"Доходы", "Расходы"};
     FrameLayout ct, dt, ac, sum;
+    FrameLayout frame, frame2;
     EditText Et1, Et2, Et3, Et4;
 
     ImageButton done;
@@ -46,6 +48,7 @@ public class History extends AppCompatActivity {
     int pz;
 
     ListView listh;
+    CalendarView calendar, calendar2;
 
     Spinner spinnerrr;
     Spinner spinner1;
@@ -59,24 +62,30 @@ public class History extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         listh = (ListView) findViewById(R.id.listhis1);
-
-        Et1 = (EditText)findViewById(R.id.month1);
-        Et2 = (EditText)findViewById(R.id.month2);
-        Et3 = (EditText)findViewById(R.id.amount1);
-        Et4 = (EditText)findViewById(R.id.amount2);
-
         spinnerrr = (Spinner) findViewById(R.id.spinnerrr);
         spinner1 = (Spinner) findViewById(R.id.spinner_sort);
         spinner2 = (Spinner) findViewById(R.id.spinner_filter);
         spinner3 = (Spinner) findViewById(R.id.spinner_filter1);
         spinner4 = (Spinner) findViewById(R.id.spinner_filter2);
 
+        Et1 = (EditText)findViewById(R.id.month1);
+        Et2 = (EditText)findViewById(R.id.month2);
+        Et3 = (EditText)findViewById(R.id.amount1);
+        Et4 = (EditText)findViewById(R.id.amount2);
+        calendar = (CalendarView)findViewById(R.id.calendarView);
+        calendar2 = (CalendarView)findViewById(R.id.calendarView2);
         done = (ImageButton) findViewById(R.id.done);
 
         ct = (FrameLayout)findViewById(R.id.categ_frame);
         dt = (FrameLayout)findViewById(R.id.data_frame);
         ac = (FrameLayout)findViewById(R.id.accs_frame);
         sum = (FrameLayout)findViewById(R.id.summ_frame);
+
+        frame = (FrameLayout)findViewById(R.id.frame1);
+        frame2 = (FrameLayout)findViewById(R.id.frame2);
+
+        frame.setVisibility(ImageView.INVISIBLE);
+        frame2.setVisibility(ImageView.INVISIBLE);
 
         ct.setVisibility(ImageView.INVISIBLE);
         dt.setVisibility(ImageView.INVISIBLE);
@@ -96,6 +105,30 @@ public class History extends AppCompatActivity {
             public void onClick(View view) {
                 draw2(pyobj);
                 // tv.setText(obj.toString());
+            }
+        });
+
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                int mYear = year;
+                int mMonth = month + 1;
+                int mDay = dayOfMonth;
+                String selectedDate = new StringBuilder().append(mDay)
+                        .append(".").append(mMonth).append(".").append(mYear).toString();
+                Et1.setText(selectedDate);
+            }
+        });
+
+        calendar2.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                int mYear = year;
+                int mMonth = month + 1;
+                int mDay = dayOfMonth;
+                String selectedDate = new StringBuilder().append(mDay)
+                        .append(".").append(mMonth).append(".").append(mYear).toString();
+                Et2.setText(selectedDate);
             }
         });
 
@@ -276,5 +309,23 @@ public class History extends AppCompatActivity {
     public void goBack(View view) {
         Intent intent = new Intent(this, OperationsActivity.class);
         startActivity(intent);
+    }
+
+
+
+    public void open(View view) {
+        frame.setVisibility(ImageView.VISIBLE);
+    }
+
+    public void close(View view) {
+        frame.setVisibility(ImageView.INVISIBLE);
+    }
+
+    public void open2(View view) {
+        frame2.setVisibility(ImageView.VISIBLE);
+    }
+
+    public void close2(View view) {
+        frame2.setVisibility(ImageView.INVISIBLE);
     }
 }
