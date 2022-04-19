@@ -23,7 +23,7 @@ def export_csv():
     return "Осуществлен экспорт"
 
 
-def export_xlsx():  # directory - Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+def export_xlsx(d=None):  # directory - Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
     workbook = xlsxwriter.Workbook(directory + '/export_data_FinUp.xlsx')
     for name, cur_list in zip(sorted(headers2), get_all_data()):
         headers = headers2[name]

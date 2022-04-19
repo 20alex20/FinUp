@@ -9,13 +9,19 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.os.Environment;
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import android.widget.Button;
 
+import java.io.File;
+
 public class Options extends AppCompatActivity {
+
+    public File s;
+    String s1;
 
     Button Btn1, Btn2, Btn;
     FrameLayout frame1;
@@ -31,6 +37,10 @@ public class Options extends AppCompatActivity {
         Btn1 = (Button)findViewById(R.id.button4);
         Btn2 = (Button)findViewById(R.id.button6);
         Btn = (Button)findViewById(R.id.button12);
+
+        s = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        s1 = s.getAbsolutePath();
+        //Toast.makeText(getApplicationContext(),s1,Toast.LENGTH_LONG).show();
 
         if(!Python.isStarted())
             Python.start(new AndroidPlatform(this));
@@ -51,7 +61,7 @@ public class Options extends AppCompatActivity {
         Btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("export_xlsx");
+                PyObject obj = pyobj.callAttr("export_xlsx", s1);
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
             }
