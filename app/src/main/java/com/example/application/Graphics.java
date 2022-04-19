@@ -122,7 +122,7 @@ public class Graphics extends AppCompatActivity {
     }
 
     public void goBack(View view) {
-        Intent intent = new Intent(this, OperationsActivity.class);
+        Intent intent = new Intent(this, Analytics.class);
         startActivity(intent);
     }
 

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -31,7 +32,7 @@ public class History extends AppCompatActivity {
     FrameLayout ct, dt, ac, sum;
     EditText Et1, Et2, Et3, Et4;
 
-    Button done;
+    ImageButton done;
 
     private String[] name_categories, name_bank_accs;
     private int[] id_categories;
@@ -70,7 +71,7 @@ public class History extends AppCompatActivity {
         spinner3 = (Spinner) findViewById(R.id.spinner_filter1);
         spinner4 = (Spinner) findViewById(R.id.spinner_filter2);
 
-        done = (Button) findViewById(R.id.done);
+        done = (ImageButton) findViewById(R.id.done);
 
         ct = (FrameLayout)findViewById(R.id.categ_frame);
         dt = (FrameLayout)findViewById(R.id.data_frame);
