@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.app.ListActivity;
 import android.widget.AdapterView;
 
 import com.chaquo.python.PyObject;
@@ -53,7 +52,7 @@ public class Scores extends AppCompatActivity {
         Et2 = (EditText)findViewById(R.id.cat_name2);
         Btn = (ImageButton)findViewById(R.id.add_cat);
         Text = (TextView)findViewById(R.id.textView17);
-        listd = (ListView) findViewById(R.id.list);
+        listd = (ListView) findViewById(R.id.listhis1);
 
         Btn2 = (ImageButton)findViewById(R.id.rename);
         Btn1 = (Button)findViewById(R.id.button3);

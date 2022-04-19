@@ -1,5 +1,6 @@
 import sqlite3
 from datetime import datetime as dt
+from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 from os import environ
 import shutil
@@ -148,7 +149,7 @@ def to_line_list(arr, cut=None):
 def get_all_data():
     ans = []
     id_user = get_id_user()
-    for i in [get_bank_accounts_query, get_categories_query, get_deposits_query, get_deposit_categories_query, get_purchases_query]:
+    for i in [get_bank_accounts_query, get_categories_query, get_deposit_categories_query, get_deposits_query, get_purchases_query]:
         ans.append(get_data(format(i, id_user)))
     return ans
 
@@ -389,3 +390,51 @@ def get_get():
     for i in get_purchase():
         ans.append(list(i[:-1]) + ['1'])
     return sorted(ans, key=lambda x: x[4])
+
+# "Дате", "Категориям", "Счету", "Сумме"
+def sort_by(purchase_deposit, by):
+    if by == 0 or by == 3:
+        reverse = True
+    else:
+        reverse = False
+    ans = []
+    if purchase_deposit:
+        for i in get_purchase():
+            ans.append([i[0], get_category_name(i[1]), get_bank_acc_name(i[2]), i[3], i[4]])
+    else:
+        for i in get_deposits():
+            ans.append([i[0], get_deposit_category_name(i[1]), get_bank_acc_name(i[2]), i[3], i[4]])
+    if by == 0:
+        by = 4
+        return sorted(ans, key=lambda x: [int(i) for i in x[by].split('.')[::-1]], reverse=reverse)
+    return sorted(ans, key=lambda x: x[by], reverse=reverse)
+
+# "Нет", "Дате", "Категориям", "Счету", "Сумме"
+def filter_by(arr, by, n1, n2=None):
+    if by == 0:
+        return arr
+    elif by == 1:
+        a = [int(i) for i in n1.split('.')][::-1]
+        n1 = date(year=a[0], month=a[1], day=a[2])
+        if n2 != '':
+            a = [int(i) for i in n2.split('.')][::-1]
+            n2 = date(year=a[0], month=a[1], day=a[2])
+        ans = []
+        for i in arr:
+            a = [int(j) for j in i[4].split('.')][::-1]
+            n = date(year=a[0], month=a[1], day=a[2])
+            if n1 <= n and (n2 == '' or n <= n2):
+                ans.append(i)
+        return ans
+    elif by == 2 or by == 3:
+        return filter(lambda x: x[by - 1] == n1, arr)
+    else:
+        if n1 == '':
+            n1 = 0
+        else:
+            n1 = int(n1)
+        if n2 == '':
+            return filter(lambda x: n1 <= x[3], arr)
+        else:
+            n2 = int(n2)
+            return filter(lambda x: n1 <= x[3] <= n2, arr)

@@ -7,9 +7,9 @@ from main import environ
 headers2 = {
     "categories": ("id_category", "name", "description"),
     "deposit_categories": ("id_deposit_category", "name", "description"),
-    "purchases": ("id_purchase", "sum", "date"),
+    "purchases": ("id_purchase", "id_category", "id_bank_account", "sum", "date", "comment"),
     "bank_accounts": ("id_bank_account", "name", "current_sum", "description"),
-    "deposits":  ("id_deposit", "sum", "date")
+    "deposits":  ("id_deposit", "id_category", "id_bank_account", "sum", "date", "comment"),
 }
 directory = environ["HOME"]
 
@@ -20,7 +20,7 @@ def export_csv():
             writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(headers)
             writer.writerows(cur_list)
-    return "Данные изменены"
+    return "Осуществлен экспорт"
 
 
 def export_xlsx():  # directory - Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
@@ -34,3 +34,4 @@ def export_xlsx():  # directory - Environment.getExternalStoragePublicDirectory(
             for column, j in enumerate(i):
                 worksheet.write(row + 1, column, j)
     workbook.close()
+    return "Осуществлен экспорт"

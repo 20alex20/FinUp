@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application">
         <activity
+            android:name=".History"
+            android:exported="false" />
+        <activity
             android:name=".Income_categories"
             android:exported="false" />
         <activity

@@ -244,12 +244,25 @@
 
                 <TextView
                     android:id="@+id/textView20"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="32dp"
                     android:text="История операций"
                     android:textColor="#6E6E6E"
                     android:textSize="25sp" />
+
+
+                <ImageButton
+                    android:id="@+id/imageButton7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="#00FFFFFF"
+                    android:onClick="History"
+                    android:scaleType="fitEnd"
+
+                    app:srcCompat="@drawable/icons_filt" />
+
+
 
             </LinearLayout>
 
@@ -346,7 +359,8 @@
             <ListView
                 android:id="@+id/listhis"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:visibility="visible" />
 
         </LinearLayout>
     </ScrollView>

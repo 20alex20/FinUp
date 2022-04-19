@@ -11,7 +11,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.app.ListActivity;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -26,7 +25,7 @@ import java.util.Arrays;
 public class Income_categories extends AppCompatActivity {
 
     FrameLayout frame1, frame2;
-    EditText Et1;
+    EditText Et1, Et2;
     ImageButton Btn, Btn2;
     Button Btn1;
     ListView listd;
@@ -46,11 +45,12 @@ public class Income_categories extends AppCompatActivity {
         frame1 = (FrameLayout)findViewById(R.id.frame1);
         frame2 = (FrameLayout)findViewById(R.id.frame2);
         Et1 = (EditText)findViewById(R.id.cat_name);
+        Et2 = (EditText)findViewById(R.id.cat_name2);
         Btn = (ImageButton)findViewById(R.id.add_cat);
         Btn2 = (ImageButton)findViewById(R.id.rename);
         Btn1 = (Button)findViewById(R.id.button3);
 
-        listd = (ListView) findViewById(R.id.list);
+        listd = (ListView) findViewById(R.id.listhis1);
 
         frame1.setVisibility(ImageView.INVISIBLE);
         frame2.setVisibility(ImageView.INVISIBLE);
@@ -97,9 +97,9 @@ public class Income_categories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                PyObject obj = pyobj.callAttr("edit_deposit_category", id_categories[pz], name_categories[pz], "");
+                PyObject obj = pyobj.callAttr("edit_deposit_category", id_categories[pz], Et2.getText().toString(), "");
                 String s = obj.toString();
-                Toast.makeText(getApplicationContext(), "perenaz",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
                 draw(pyobj);
                 close2(view);
             }

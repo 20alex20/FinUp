@@ -47,7 +47,7 @@
 
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/listhis1"
         android:layout_width="wrap_content"
         android:layout_height="440dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView16"

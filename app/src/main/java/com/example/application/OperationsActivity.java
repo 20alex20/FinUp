@@ -126,16 +126,18 @@ public class OperationsActivity extends AppCompatActivity {
             value[i / cut] = arr2[i+3];
             data[i / cut] = arr2[i+4];
             PyObject category_name;
+            PyObject bank_acc_name = pyobj.callAttr("get_bank_acc_name", id_acc[i / cut]);
             if (arr2[i+5].equals("0")) {
                 category_name = pyobj.callAttr("get_deposit_category_name", id_categ[i / cut]);
+                sm[i / cut] = "Категория: " + category_name + "\n" + "Счет списания: " + bank_acc_name + "\n"
+                        + "Сумма: " + value[i / cut] + "₽" + "\n" + "Дата: " + data[i / cut];
             }
             else {
                 category_name = pyobj.callAttr("get_category_name", id_categ[i / cut]);
+                sm[i / cut] = "Категория: " + category_name + "\n" + "Счет начисления: " + bank_acc_name + "\n"
+                        + "Сумма: " + value[i / cut] + "₽" + "\n" + "Дата: " + data[i / cut];
             }
-            PyObject bank_acc_name = pyobj.callAttr("get_bank_acc_name", id_acc[i / cut]);
             //sm[i / cut] = id_categ[i / cut] +" "+id_acc[i / cut]+" "+ value[i / cut]+"\n" +data[i / cut];
-            sm[i / cut] = "Категория: " + category_name + "\n" + "Счет списания: " + bank_acc_name + "\n"
-                    + "Сумма: " + value[i / cut] + "₽" + "\n" + "Дата: " + data[i / cut];
         }
 
         opNamesList = new ArrayList<>(Arrays.asList(id_operations));
@@ -158,6 +160,12 @@ public class OperationsActivity extends AppCompatActivity {
 
     public void close(View view) {
         frame.setVisibility(ImageView.INVISIBLE);
+    }
+
+
+    public void History(View view) {
+        Intent intent = new Intent(this, History.class);
+        startActivity(intent);
     }
 
     public void AddIncomes(View view) {
