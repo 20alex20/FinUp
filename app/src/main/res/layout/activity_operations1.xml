@@ -361,7 +361,7 @@
         android:id="@+id/frame1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -375,8 +375,9 @@
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="344dp"
-            android:layout_height="280dp"
+            android:layout_height="260dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/rectangle_42" />
 
@@ -385,6 +386,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -465,7 +467,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="110dp"
+            android:layout_marginBottom="120dp"
             android:text="С учетом инфляции:"
             android:textSize="16dp" />
 
@@ -475,7 +477,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginStart="130dp"
-            android:layout_marginBottom="136dp"
+            android:layout_marginBottom="166dp"
             android:background="#00FFFFFF"
             android:onClick="close"
             android:scaleType="fitCenter"

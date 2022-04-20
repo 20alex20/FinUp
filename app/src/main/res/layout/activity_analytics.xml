@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/property" />
+        app:srcCompat="@drawable/property_1_default__1_" />
 
     <ImageButton
         android:id="@+id/imageButton23"
