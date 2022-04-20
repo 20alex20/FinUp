@@ -1,14 +1,14 @@
-package com.example.application;
+package com.example.FinUp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.AdapterView;
@@ -18,11 +18,12 @@ import android.widget.ListView;
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
+import com.example.application.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Income_categories extends AppCompatActivity {
+public class Category extends AppCompatActivity {
 
     FrameLayout frame1, frame2;
     EditText Et1, Et2;
@@ -66,13 +67,15 @@ public class Income_categories extends AppCompatActivity {
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PyObject obj = pyobj.callAttr("add_deposit_category", Et1.getText().toString(), "");
+                PyObject obj = pyobj.callAttr("add_category", Et1.getText().toString(), "");
                 frame1.setVisibility(ImageView.INVISIBLE);
-                Toast.makeText(getApplicationContext(),"Данные изменены",Toast.LENGTH_LONG).show();
+                String s = obj.toString();
+                Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
 
                 draw(pyobj);
             }
         });
+
         listd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
@@ -85,7 +88,7 @@ public class Income_categories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                PyObject obj = pyobj.callAttr("delete_deposit_category", id_categories[pz]);
+                PyObject obj = pyobj.callAttr("delete_category", id_categories[pz]);
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
                 draw(pyobj);
@@ -97,18 +100,20 @@ public class Income_categories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                PyObject obj = pyobj.callAttr("edit_deposit_category", id_categories[pz], Et2.getText().toString(), "");
+                PyObject obj = pyobj.callAttr("edit_category", id_categories[pz], Et2.getText().toString(), "");
                 String s = obj.toString();
                 Toast.makeText(getApplicationContext(), s,Toast.LENGTH_LONG).show();
                 draw(pyobj);
                 close2(view);
             }
         });
+
+
     }
 
     public void draw(PyObject pyobj) {
         int cut = 2;
-        PyObject list = pyobj.callAttr("get_deposit_categories");
+        PyObject list = pyobj.callAttr("get_categories");
         PyObject obj = pyobj.callAttr("to_line_list", list, cut);
         String[] arr = obj.toJava(String[].class);
         id_categories = new int[arr.length / cut];
@@ -122,7 +127,22 @@ public class Income_categories extends AppCompatActivity {
         catNamesList = new ArrayList<>(Arrays.asList(name_categories));
         mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, catNamesList);
         listd.setAdapter(mAdapter);
+        //Toast.makeText(getApplicationContext(),catNamesList + "",Toast.LENGTH_LONG).show();
     }
+
+
+//    @Override
+//    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//        String selectedItem = parent.getItemAtPosition(position).toString();
+//
+//        mAdapter.remove(selectedItem);
+//        mAdapter.notifyDataSetChanged();
+//
+//        Toast.makeText(getApplicationContext(),
+//                selectedItem + " удалён.",
+//                Toast.LENGTH_SHORT).show();
+//        return true;
+//    }
 
     public void open(View view) {
         frame1.setVisibility(ImageView.VISIBLE);

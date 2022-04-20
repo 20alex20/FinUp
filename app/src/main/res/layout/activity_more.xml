@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#00FFFFFF"
     android:backgroundTint="#00FFFFFF"
-    tools:context=".More">
+    tools:context="com.example.FinUp.More">
 
     <ImageView
         android:id="@+id/imageView21"

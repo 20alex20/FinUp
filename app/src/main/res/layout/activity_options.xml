@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ECECEC"
     android:backgroundTint="#FFFFFF"
-    tools:context=".Options">
+    tools:context="com.example.FinUp.Options">
 
     <ImageView
         android:id="@+id/imageView21"

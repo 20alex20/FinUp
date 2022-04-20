@@ -11,46 +11,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application">
         <activity
-            android:name=".History"
+            android:name="com.example.FinUp.History"
             android:exported="false" />
         <activity
-            android:name=".Income_categories"
+            android:name="com.example.FinUp.Income_categories"
             android:exported="false" />
         <activity
-            android:name=".Graphics2"
+            android:name="com.example.FinUp.Graphics2"
             android:exported="false" />
         <activity
-            android:name=".AddIncomes"
+            android:name="com.example.FinUp.AddIncomes"
             android:exported="false" />
         <activity
-            android:name=".Category"
+            android:name="com.example.FinUp.Category"
             android:exported="false" />
         <activity
-            android:name=".Options"
+            android:name="com.example.FinUp.Options"
             android:exported="false" />
         <activity
-            android:name=".More"
+            android:name="com.example.FinUp.More"
             android:exported="false" />
         <activity
-            android:name=".Graphics"
+            android:name="com.example.FinUp.Graphics"
             android:exported="false" />
         <activity
-            android:name=".Analytics"
+            android:name="com.example.FinUp.Analytics"
             android:exported="false" />
         <activity
-            android:name=".Scores"
+            android:name="com.example.FinUp.Scores"
             android:exported="false" />
         <activity
-            android:name=".AddExpenses"
+            android:name="com.example.FinUp.AddExpenses"
             android:exported="false" />
         <activity
-            android:name=".OperationsActivity"
+            android:name="com.example.FinUp.OperationsActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name="com.example.FinUp.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.FinUp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

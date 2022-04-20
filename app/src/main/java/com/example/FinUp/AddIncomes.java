@@ -1,4 +1,4 @@
-package com.example.application;
+package com.example.FinUp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
+import com.example.application.R;
 
 public class AddIncomes extends AppCompatActivity {
 

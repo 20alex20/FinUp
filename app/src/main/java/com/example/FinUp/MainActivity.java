@@ -1,24 +1,19 @@
-package com.example.application;
+package com.example.FinUp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
-
-import java.io.ByteArrayInputStream;
-import java.lang.reflect.Array;
+import com.example.application.R;
 
 public class MainActivity extends AppCompatActivity {
 
