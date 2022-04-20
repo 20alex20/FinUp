@@ -53,15 +53,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.587"
-        app:srcCompat="@drawable/rectangle_23__1_"
+        app:srcCompat="@drawable/emailass"
         tools:ignore="ImageContrastCheck" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/username"
+        android:hint="@string/email"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="#757575"
@@ -70,8 +71,7 @@
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.532"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.532" />
 
     <EditText
         android:id="@+id/password"
